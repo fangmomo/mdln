@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <!-- IE使用它支持的最高模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>上传章节</title>
+    <link rel="stylesheet" type="text/css" href="css/contentv2_base.css">
+	<link rel="stylesheet" type="text/css" href="css/contentv2_book_manage.css"/>
+	<link rel="stylesheet" type="text/css" href="css/contentv2_timing_plugin.css"/>
+</head>
+<body style="zoom: 1;">
+<div class="wrap">
+    <div class="header">
+    <div class="headBox pageCenter cf">
+        <img class="logo fl" src="img/author/author_title1.png" width="225" height="28" alt="萌动·作家专区">
+      </a>
+      <div class="headUser fr">
+        <ul class="cf">
+          <li id="headPhotoBox" class="headPhoto">
+            <p><em><img src="img/author/photo_default.png" width="36" height="36" alt=""></em><a class="userName" href="javascript:">小方哈哈</a>
+            	<a class="out" href="/logout">退出</a>
+            	</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+<!-- start banner -->
+    
+<!-- end banner -->
+<!-- 黄条提示 -->
+<div id="warnTipBox" class="warningWrap" style="display:none;">
+    <div class="pageCenter">
+      <p><span class="icon alert"></span><span id="warnTip"></span></p>
+      <a id="warnTipCloseBtn" class="icon close" href="javascript:" title="关闭"></a></div>
+</div>
+<!--更改VIP管理密码-->
+
+    <div class="mainWrap pageCenter cf">       
+        <div id="leftNav" class="mainLeft fl" style="visibility: visible;">
+            <div class="sideBar" id="main-bar">
+                  <ul>
+                  	<li class="act">
+                        <a href=""><span class="works"></span>作品管理</a>
+                    </li>
+									</ul>
+            </div>
+            <!-- end 小屏下的列表-->
+
+        </div>
+
+<div class="mainRight pb0 fl">
+    <div class="crumbsWrap">
+        <b></b>
+        <i class="before"><a href=""><span>作品管理</span></a></i>
+        <em class="diff"></em>
+        <i class="current"><span>第一部小説</span></i> 
+    </div>
+    <div class="msgBoxTitle">
+        <!--id="createDraftIconBtn"-->
+       <div class="tabSwitch cf">
+            <span><a href="">作品设置</a></span>
+            <span class="act"><a href="">发布章节</a></span>
+            <span><a href="">已发布章节</a></span>
+        </div>
+    </div>
+    <div class="managerWrap cf">
+        <div class="mLeftList fl">
+            <div id="draftListWrap" class="leftListWrap">
+                <div class="titleBox">
+                    <p>共 0 章</p>
+                </div>
+            <div id="sectionBubble" class="section-bubble"><p></p><span class="icon"></span></div></div>
+        </div>
+        <div class="mRightContent fl">
+            <!-- 编辑草稿 start -->
+            <div id="editDraftBox" class="midWrap editWrap hidden" style="display: block;">
+                <form id="formDraft" name="formDraft" method="post" action="/load">
+                    <div class="sectionViewWrap">
+                        <div id="portamento_container" style="min-height: 48px; width: 809px;"><div id="draftBtnBox" class="sectionBtnBox cf" data-slide="1" style="top: 0px;">
+                            <div class="titleBtn fr">
+                                <a id="showPublishPopupBtn" class="button green" onclick=window.formDraft.submit()><span class="icon "></span>发布</a>
+                            </div>
+
+                        </div>
+                       	</div>
+
+                        <div id="sectionEdit" class="zwText">
+                            <input id="chapterTitleInput" name="chaptertitle" type="text" value="" placeholder="此处输入章节名" style="color: rgb(187, 187, 187);">
+                            <textarea name="content" id="chapterContentInput"  style="color: rgb(51, 51, 51);" onkeydown="editTab()" placeholder="请输入正文"></textarea>
+                        </div>
+                    </div>
+								</form>
+            </div>
+            <!-- 编辑草稿 end -->
+        </div>
+    </div>
+ <script >
+
+	/*<![CDATA[*/
+	//	var bookname = /*[[${session.bookname}]]*/;
+		//var chapter = /*[[${session.curr_count}]]*/;
+	/*]]>*/
+	//document.getElementById("bookname").innerHTML = "当前书籍："+bookname;
+	//document.getElementById("chapter").innerHTML = "上一章节："+chapter;
+
+	HTMLTextAreaElement.prototype.getCaretPosition = function() {
+			//return the caret position of the textarea
+			return this.selectionStart;
+		};
+		HTMLTextAreaElement.prototype.setCaretPosition = function(position) {
+			//change the caret position of the textarea
+			this.selectionStart = position;
+			this.selectionEnd = position;
+			this.focus();
+		};
+		HTMLTextAreaElement.prototype.hasSelection = function() {
+			//if the textarea has selection then return true
+			if (this.selectionStart == this.selectionEnd) {
+				return false;
+			} else {
+				return true;
+			}
+		};
+		HTMLTextAreaElement.prototype.getSelectedText = function() {
+			//return the selection text
+			return this.value.substring(this.selectionStart, this.selectionEnd);
+		};
+		HTMLTextAreaElement.prototype.setSelection = function(start, end) {
+			//change the selection area of the textarea
+			this.selectionStart = start;
+			this.selectionEnd = end;
+			this.focus();
+		};
+		var textarea = document.getElementsByTagName('textarea')[0];
+		textarea.onkeydown = function(event) {
+			//support tab on textarea
+			if (event.keyCode == 9) { //tab was pressed
+				var newCaretPosition;
+				newCaretPosition = textarea.getCaretPosition() + " ".length;
+				textarea.value = textarea.value.substring(0, textarea
+						.getCaretPosition())
+						+ " "
+						+ textarea.value.substring(textarea.getCaretPosition(),
+								textarea.value.length);
+				textarea.setCaretPosition(newCaretPosition);
+				return false;
+			}
+			if (event.keyCode == 8) {
+				//backspace
+				if (textarea.value.substring(textarea.getCaretPosition() - 4,
+						textarea.getCaretPosition()) == " ") {
+					//it's a tab space
+					var newCaretPosition;
+					newCaretPosition = textarea.getCaretPosition() - 3;
+					textarea.value = textarea.value.substring(0, textarea
+							.getCaretPosition() - 3)
+							+ textarea.value.substring(textarea
+									.getCaretPosition(), textarea.value.length);
+					textarea.setCaretPosition(newCaretPosition);
+				}
+			}
+			if (event.keyCode == 37) { //left arrow
+				var newCaretPosition;
+				if (textarea.value.substring(textarea.getCaretPosition() - 4,
+						textarea.getCaretPosition()) == " ") {
+					//it's a tab space
+					newCaretPosition = textarea.getCaretPosition() - 3;
+					textarea.setCaretPosition(newCaretPosition);
+				}
+			}
+			if (event.keyCode == 39) {
+				//right arrow
+				var newCaretPosition;
+				if (textarea.value.substring(textarea.getCaretPosition() + 4,
+						textarea.getCaretPosition()) == " ") {
+					//it's a tab space
+					newCaretPosition = textarea.getCaretPosition() + 3;
+					textarea.setCaretPosition(newCaretPosition);
+				}
+			}
+		}
+	</script>
+</body></html>

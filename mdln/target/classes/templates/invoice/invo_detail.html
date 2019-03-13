@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.{
+				width: 100%;
+				height: 100%;
+				font-size: 14px;
+			}
+			p{
+				font-size: 16px;
+				display: inline;
+			}
+			span{
+				font-size: 14px;
+			}
+			input{
+				position: relative;
+			}
+			.container{
+				position: relative;
+				top:40px;
+				width: 60%;
+				height: 100%;
+				margin-left: auto;
+				margin-right: auto;
+				padding: 2em;
+			}
+			.require_div{
+				background:url(img/invoice/back.png);
+				border:1px solid antiquewhite;
+				width: 100%;
+				height: 100%;
+				margin-top: 20px;
+			}
+			.require_form{
+				padding-left: 2em;
+			}
+			.div_title{
+				display: block;
+				font-size: 20px;
+				color: orange;
+				text-align:center;
+			}
+			.list{
+				width: 100%;
+				height: 100%;
+				border-bottom:1px solid antiquewhite;
+				margin-top: 25px;
+				padding-bottom: 25px;
+			}
+			#textarea{
+				width: 75%;
+				height: 60%;
+				display: block;
+				resize:none;
+				margin-top: 10px;
+			}
+			.select_title{
+				width: 25%;
+				float: left;
+				position: relative;
+				dispaly:inline-block;
+				padding: 3px;
+			}
+			.select_content{
+				position: relative;
+				dispaly:inline-block;
+				width: 75%;
+				margin-left:35%;
+				padding: 3px;
+			}
+			.ex_image1{
+				height:200px;
+				background:url(img/invoice/upimage.png);
+				background-size:contain;
+				position:relative;
+				width: 200px;
+			}
+			.upfile{
+				height:50px;
+				background:url(img/invoice/upfile.png);
+				background-size:contain;
+				position:relative;
+				width: 500px;
+			}
+			.upload{
+				height:100px;
+				overflow: hidden;
+				font-size: 300px;
+				position:absolute;
+				right:0;
+				top:0;
+				opacity: 0;
+				filter:alpha(opacity=0);
+				cursor:pointer;
+			}
+			.submit{
+				position: relative;
+				width: 20%;
+				height: 40px;
+				left: 40%;
+				background-color: darkorange;
+				border-style:none;
+				margin-top: 20px;
+				cursor:pointer;
+				font-size: 24px;
+				color: wheat;
+				letter-spacing:10px;
+			}
+			#bookname{
+				font-size:24px;
+				color:white
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="require_div">
+				<p class="div_title"><span id="bookname"></span>插画要求</p>
+				<form class="require_form" action="/invoice_home" method="post">
+					<!--风格-->
+					<div id="style" class="list">
+						<div class="select_title">
+							<p>风格要求</p>
+						</div>
+						<div class="select_content">
+							<input type="radio"name="style" value="1" /><span>有风格要求</span>
+							<input type="radio"name="style" value="0" /><span>风格无限</span>
+						</div>
+					</div>
+					<!--颜色模式-->
+					<div id="color_style" class="list">
+						<div class="select_title">
+							<p>稿件颜色模式</p>
+						</div>
+						<div class="select_content">
+							<input type="radio"name="color_style" value="RGB" /><span>RGB模式（用于网络传输）</span>
+							<input type="radio"name="color_style" value="CMYK" /><span>CMYK模式（用于印刷品）</span>
+							<input type="radio"name="color_style" value="FREE" /><span>自定义</span>
+						</div>
+					</div>
+					<!--画师可否公开发布稿件-->
+					<div id="is_public" class="list">
+						<div class="select_title">
+							<p>画师可否公开发布稿件</p>
+						</div>
+						<div class="select_content">
+							<input type="radio"name="is_public" value="public" /><span>可以自由公布</span>
+							<input type="radio"name="is_public" value="public_limited" /><span>需按约定公开发布</span>
+							<input type="radio"name="is_public" value="no-public" /><span>不可公开发布</span>
+						</div>
+					</div>
+					<!--需求描述-->
+					<div id="require_desc" class="list">
+						<div class="select_title">
+							<p>需求描述</p>
+						</div>
+						<div class="select_content">
+							<textarea cols="50" rows="5" class="textarea" name="desc" readonly="readonly">
+							</textarea>
+						</div>
+					</div>
+					<!--报价-->
+					<div id="require_price" class="list">
+						<div class="select_title">
+							<p>报价：</p>
+						</div>
+						<div class="select_content">
+							<input type="text" name="price" readonly="readonly"/>
+						</div>
+					</div>
+					<!--试稿要求-->
+					<div id="check_require"  class="list">
+						<div class="select_title">
+							<p>试稿要求</p>
+						</div>
+						<div class="select_content">
+							<input type="radio"name="check_require" value="0" /><span>不需要试稿</span>
+							<input type="radio"name="check_require" value="-1" /><span>无偿试稿</span>
+							<input type="radio"name="check_require" value="1" /><span>有偿试稿</span>
+						</div>
+					</div>
+					<!--反馈时间要求-->
+					<div id="reponse_time_require" class="list">
+						<div class="select_title">
+							<p>反馈时间要求</p>
+						</div>
+						<div class="select_content">
+							<input type="date" name="reponse_time" readonly="readonly"/>
+						</div>
+					</div>
+					<!--参考例图-->
+					<div id="example_image" class="list">
+						<div class="select_title">
+							<p>参考例图</p>
+						</div>
+						<div class="select_content">
+							<div class="ex_image1">
+								<input class="upload" type="file"/>
+							</div>
+						</div>
+					</div>
+					<!--相关附件-->
+					<div class="list">
+						<div class="select_title">
+							<p>相关附件</p>
+						</div>
+						<div class="select_content">
+							<div calss="upfile">
+								<input class="upload" type="file"/>
+							</div>
+						</div>
+					</div>
+					<a href="/invoice_home"><input class="submit" type="button" value="返回"/></a>
+				</form>
+			</div>
+		</div>
+		<script th:inline="javascript">
+			window.onload = function(){
+				/*<![CDATA[*/
+					window.curr_invo = /*[[${session.curr_invo}]]*/; 	
+				/*]]>*/
+
+				var curr_invo_json = JSON.parse(curr_invo);
+				 //书名
+				document.getElementById('bookname').innerHTML = "<<"+curr_invo_json.bookname+">>";
+				//风格
+				if(curr_invo_json.style=='1')
+					document.getElementsByName('style')[0].checked = true;
+				else
+					document.getElementsByName('style')[1].checked = true;
+				//颜色风格
+				if(curr_invo_json.color_style=='RGB')
+					document.getElementsByName('color_style')[0].checked = true;
+				else if(curr_invo_json.color_style=='CMYK')
+					document.getElementsByName('color_style')[1].checked = true;
+				else
+					document.getElementsByName('color_style')[2].checked = true;
+				//画师可否公开发布稿件
+				if(curr_invo_json.is_public=='public')	
+					document.getElementsByName('is_public')[0].checked = true;
+				else if(curr_invo_json.color_style=='public_limited')
+					document.getElementsByName('is_public')[1].checked = true;
+				else
+					document.getElementsByName('is_public')[2].checked = true;
+				//需求描述
+				document.getElementsByClassName('textarea')[0].innerHTML=curr_invo_json.desc;
+				//价格
+				document.getElementsByName('price')[0].value = curr_invo_json.price;
+				//试稿要求
+				if(curr_invo_json.check_require=='0')	
+					document.getElementsByName('check_require')[0].checked = true;
+				else if(curr_invo_json.color_style=='-1')
+					document.getElementsByName('check_require')[1].checked = true;
+				else
+					document.getElementsByName('check_require')[2].checked = true;
+				//反馈时间要求
+				document.getElementsByName('reponse_time')[0].value = curr_invo_json.reponse_time;
+			}
+			
+		</script>
+	</body>
+</html>

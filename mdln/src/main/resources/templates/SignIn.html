@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>登录管理</title>
+<meta name="description" content="登录界面">
+<meta name="keywords" content="登录界面">
+<link href="" rel="stylesheet">
+<style>
+	body,p,div,ul,li,h1,h2,h3,h4,h5,h6{
+		margin:0;
+		padding: 0;
+	}
+	body{
+		background:rgb(248,140,39);
+	}
+	input::-webkit-input-placeholder { /* WebKit browsers */ 
+		color: rgb(253,152,22); 
+	} 
+	input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 	color: rgb(253,152,22);
+	} 
+	
+	input::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+	color: rgb(253,152,22);
+	} 
+	
+	input:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+		color: rgb(253,152,22);
+	} 
+	input {
+	  outline: 0;
+	  border-width: 0 0 3px;
+	  border-color: rgb(236,100,60);
+	}
+	.contain{
+
+	width:100%;
+	}
+	#login{
+		width:25%;
+		margin:5% auto;
+		background: #FFF;
+		border:1 solid rgb(194,102,37);
+		padding:5%;s
+	}
+	#login form p{
+		text-align: center;
+	}
+	#user{
+		width: 100%;
+		height: 50px;
+	
+		margin-bottom: 50px;
+		font-size:26px;
+		color:rgb(236,100,60);
+		/*font-weight:bold;*/
+
+	}
+	#pwd{
+		width: 100%;
+		height: 50px;
+		margin-bottom: 70px;
+		font-size:26px;
+		color:rgb(236,100,60);
+		/*font-weight:bold;*/
+
+	}
+	#submit{
+		width:100%;
+		height: 60px;
+		border:0px;
+		border-radius: 30px;
+		background-color:rgb(248,140,39);
+		font-size:26px;
+		color:white;
+		letter-spacing:15px;
+		margin-bottom:20px;
+	}
+	#submit:hover{
+		cursor: pointer;
+		/*background:#D8D8D8;*/
+	}
+	.tool{
+		margin:10px auto;
+		text-align:center;
+	}
+	a{
+		font-size:24px;
+		color:rgb(248,140,39);
+		float:left;
+		display:block;
+		margin-left:10%;
+		margin-right:10%;
+		text-decoration:none;
+	}
+</style>
+</head>
+<body>
+<div class="contain">
+	<div id="login">
+		<form action="" method="post">
+			<p><input type="text" name="user" id="user" placeholder="用户名:"></p>
+			<p><input type="password" name="passward" id="pwd" placeholder="密码:"></p>
+			<p><input type="submit" formaction="/SignIn" id="submit" value="登录"></p>
+		</form>
+		<div class="tool">
+			<a href="/RegisteViem">注册</a><a href="/">返回主页面</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">  
+<head>
+  <meta charset="UTF-8"/>
+  <title>萌动轻小说</title>
+  <link rel="stylesheet"  type="text/css" href="css/index.css"/>
+  <style>
+	.pagination-bar {
+	  position:relative;
+      font-size: 0px;
+      padding: 20px 0px;
+      text-align: center;
+  }
+  .pagination-bar a {
+      display: inline-block;
+      padding: 5px 7.5px;
+      text-decoration: none;
+      min-width: 20px;
+      font-size: 16px;
+  }
+  .pagination-bar a:not(.disabled) {
+      background-color: #FFF;
+      color: #666;
+  }
+  .pagination-bar a.disabled {
+      background-color: #e17d14;
+      color: #FFF;
+  }
+  .page-prev {
+      border-radius: 15px 0px 0px 15px;
+      margin-right:5px;
+  }
+  .page-next {
+      border-radius: 0px 15px 15px 0px;
+      margin-left:5px;
+  }
+  .pagination-bar span:not(.active) {
+      display: inline-block;
+      padding: 5px 7.5px;
+      font-size: 16px;
+  }
+  </style>
+</head>
+<body bgcolor="#f9a672">
+  <div class="container">
+  	<!--头部-->
+	<div class="header" style="background-image:url(img/bgmain.jpg);">
+		<div class="top-link" >
+			<div class="normal-link">
+			  <div align="right">
+			  	<a id="username"></a>
+			    <a href="/RegisteViem" id="register">注册 /</a>
+			    <a href="/SignInViem" id="signin">登录</a>
+			    <a href="/logout" id="logout">退出</a>
+				<form action="/search" method="post">
+					<input type="text" name="searchkey" placeholder="搜索"/>
+					<button type="submit"></button>
+				</form>
+			  </div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="bosom">
+		<!--菜单-->
+		<div class="menu">
+			<ul>
+				<li>
+					<a href="/home">首页</a>
+					<ul class="submenu">
+						<li><a onclick="submit(this)">玄幻</a> <a onclick="submit(this)">言情</a></li>
+						<li><a onclick="submit(this)">都市</a> <a onclick="submit(this)">武侠</a></li>
+						<li><a onclick="submit(this)">灵异</a> <a onclick="submit(this)">热血</a></li>
+					</ul>
+				</li>
+				<li>
+					<a onclick="submit(this)">排行榜</a>
+				</li>
+				<li>
+					<a href="submit(this)">作者专区</a>
+				</li>
+				<li>
+					<a onclick="submit(this)">画师专区</a>	
+				</li>
+				<li>
+					<a onclick="/book_base">书库</a>	
+				</li>
+				<li>
+					<a href="/mysheet">我的书架</a>	
+				</li>
+			</ul>
+		<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="98%" color=#FF6633 SIZE=3>
+		</div>
+		
+		<div class="hot">
+			<ul class="storylist" >
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="1" src="img/background.jpg" style="dispaly:block;"/></a>
+						<!--小说信息-->
+					</div>
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+	
+					</div>	
+							
+				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="2" src="img/background.jpg" style="dispaly:block;"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="3" src="img/background.jpg" style="dispaly:block;"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="4" src="img/background.jpg" style="dispaly:block;"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="1" src="img/background.jpg" style="dispaly:block;"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="2" src="img/background.jpg" style="dispaly:block;"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="3" src="img/background.jpg" style="dispaly:block;"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="4" src="img/background.jpg" style="dispaly:block;"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+			</ul>
+		</div>
+		<form id="myform" action="detafromhome" method="post">
+			<input type="hidden" id="bookname" name="bookname" value="value"/>
+			<input type="hidden" id="author" name="author" value="value"/>
+		</form>
+		<div class="pagination-bar">
+	    	<a onclick="pre()" class="page-prev">&lt;</a>
+	    	<a onclick="jump(this)" class="index"></a>
+	   	 	<a onclick="jump(this)" class="index"></a>
+	    	<a onclick="jump(this)" class="index"></a>
+	    	<a onclick="jump(this)" class="index"></a>
+	    	<!-- <span>...</span>
+	    	<a onclick="jump(this)" class="page">19</a>
+	    	<a onclick="jump(this)" class="page">20</a> -->
+	    	<a onclick="next()" class="page-next">&gt;</a>
+		</div>
+		<form id="jumpbookbase" action="book_base" method="post">
+			<input type="hidden" id="pagecount" name="pagecount" value="value"/>
+		</form>
+	</div>
+	
+</div>
+  <script th:inline="javascript">
+window.onload = function(){
+  	document.getElementById("username").style.display="none";
+	document.getElementById("logout").style.display="none";
+ 	if (document.cookie.length > 0){
+ 		var search = "username="
+ 		var	sd = document.cookie.indexOf(search);
+ 		var end;
+ 		var namevalue;
+ 		if (sd!= -1){
+ 			sd += search.length;
+ 			end = document.cookie.indexOf(";", sd);
+ 			if (end == -1)
+ 		         end = document.cookie.length;
+ 			namevalue=document.cookie.substring(sd, end);
+ 			document.getElementById("username").innerHTML =namevalue;
+ 			document.getElementById("register").style.display="none";
+ 			document.getElementById("username").style.display="";
+ 			document.getElementById("signin").style.display="none";
+ 			document.getElementById("logout").style.display="";
+ 		}	
+ 	}
+ 	/*<![CDATA[*/
+		window.bookslist = /*[[${session.all_books}]]*/; 	
+ 		window.page = /*[[${session.curr_page}]]*/;
+	/*]]>*/
+	window.bookjson = JSON.parse(bookslist);
+	window.booklen = bookjson.length;
+	var currpage = parseInt(page);
+	var index_page = currpage-1;
+	var titlelist = document.getElementsByClassName("biaoti");
+	var introlist = document.getElementsByClassName("desc");
+	
+	 var pages = document.getElementsByClassName("index");
+	 for(var i=0;i<parseInt(pages.length);i++){
+		 pages[i].innerHTML=i+1;
+	 }
+	 if(currpage>=3){
+		 for(var i=0;i<parseInt(pages.length);i++){
+			 pages[i].innerHTML=currpage+i;
+		 } 
+		 pages[0].setAttribute("class","disabled"); 
+	 }else{
+		 pages[currpage-1].setAttribute("class","disabled");
+	 }
+	 
+	 var coverpics = document.getElementsByClassName("cover_pic");
+	 
+	for(var i=0;i<parseInt(booklen);i++){
+		var index = index_page*8+parseInt(i);
+		coverpics[parseInt(i)].name = bookjson[parseInt(i)].bookname;
+		if(bookjson[parseInt(i)].bookname.length>9)
+			titlelist[parseInt(i)].innerHTML=bookjson[index].bookname.substring(0,7)+"...";
+		else
+			titlelist[parseInt(i)].innerHTML=bookjson[index].bookname;
+		//introlist[parseInt(i)].innerHTML=bookjson[parseInt(index)].style;
+	}
+ 	//使用document.getElementByClassName获取Nodelist集合 在根据数据库中的来展示数据
+}
+  	function submit(obj){
+  		var bookname = obj.innerHTML;
+  		for(var j=0;j<parseInt(booklen);j++){
+  			if(bookjson[parseInt(j)].bookname.indexOf(bookname)>-1){
+  				document.getElementById("bookname").value=bookname;
+  				document.getElementById("author").value=bookjson[parseInt(j)].author;
+  				break;
+  			}
+  		}
+  		document.getElementById("myform").submit()
+  	}
+  	function submit2(obj){
+  		var bookname = obj.name;
+  		for(var j=0;j<parseInt(booklen);j++){
+  			if(bookname==bookjson[parseInt(j)].bookname){
+  				document.getElementById("bookname").value=bookname;
+  				document.getElementById("author").value=bookjson[parseInt(j)].author;
+  				break;
+  			}
+  		}
+  		document.getElementById("myform").submit()
+  	}
+  	function pre(){
+  		document.getElementById("pagecount").value=parseInt(page)-1;
+  		document.getElementById("jumpbookbase").submit();
+  	}
+  	function jump(obj){
+  		var topage = obj.innerHTML;
+  		document.getElementById("pagecount").value=topage;
+  		document.getElementById("jumpbookbase").submit();
+  	}
+  	function next(){
+  		document.getElementById("pagecount").value=parseInt(page)+1;
+  		document.getElementById("jumpbookbase").submit();
+  	}
+  	
+  </script>
+</body>
+</html>

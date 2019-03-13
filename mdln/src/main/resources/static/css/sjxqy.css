@@ -1,0 +1,197 @@
+/* 公共样式 */
+.content s{background: url(../images/shuji/sj_icon.png) no-repeat; float: left;}
+/* 内容一  书的信息 */
+.f1{width: 1100px; height: 500px; background: #fff; margin-bottom: 20px;}
+.f1_box{width: 894px; height: 500px; border-right: 1px solid #f0f0f0; float: left;}
+.f1_box .sf{height: 40px; background: #f26552; line-height: 40px; color: #f7c9c9; padding-left: 12px; margin-bottom: 30px;}
+.f1_box .sf a{color: #fff; font-size: 16px;}
+.f1_box .sf s{width: 23px; height: 23px; background-position: 0 0; margin: 16px 0 0 2px;  float: right;}
+.f1_L{width: 312px; height: 366px; border-right: 1px solid #f0f0f0; padding-top: 22px;  position: relative; float: left;}
+.f1_L .book_cov{width: 200px; height: 250px; margin: 0 auto 44px;}
+.f1_L .state{position: absolute; left: 55px; top: 22px;}
+.f1_L .btn a{width: 100px; height: 28px; border: 1px solid #d2d2d2; border-radius: 4px; line-height: 28px; font-size: 12px; color: #6a6a6a; text-align:center;}
+.f1_L .btn a:hover{background: #d2d2d2; color: #fff;}
+.f1_L .btn .sc s{width: 16px; height: 15px; background-position: -23px 0; margin: 5px 10px 0 12px;}
+.f1_L .btn .sc:hover s{background-position: -40px 0;}
+.f1_L .btn .ysc{background: #d2d2d2; color: #fff;}
+.f1_L .btn .ysc s{background-position: -62px -82px; margin: 6px 10px 0 12px;}
+.f1_L .btn .ysc:hover s{background-position: -62px -82px;}
+.f1_L .btn .xh s{width: 16px; height: 15px; background-position: -58px 0; margin: 6px 10px 0 12px;}
+.f1_L .btn .xh:hover s{background-position: -43px -77px;}
+.f1_L .btn .sc{margin: 0 14px 0 48px;}
+.f1_C{width: 580px; float: left;}
+.f1_C h3{width: 445px; float: left; font-size: 20px;}
+.f1_C h3 a{max-width: 445px;}
+.f1_C .c01 span{font-size: 20px; color: #333; float: right;}
+.f1_C .c01{overflow: hidden; padding: 0 24px 0 16px;}
+.f1_C .c02{padding: 5px 24px 40px 16px;}
+.f1_C .c02 span{float: left;}
+.f1_C .c02 .pfBtn{float: right; color: #f26552;}
+.f1_C .c02 .zz{margin: 0 20px 0 0;}
+.f1_C .c03{height: 85px; padding: 10px 24px 38px 16px;  position: relative;/*  background: #fff; */ border-bottom: 1px solid #f0f0f0;}
+.f1_C .c03 .c03_box{position: absolute; left: 0; top: 31px; padding: 10px 24px 38px 16px; overflow: hidden; z-index: 1; background: #fff;}
+.f1_C .c03 .jianjie{font-size: 16px; color: #333; margin-bottom: 10px;}
+.f1_C .c03 .jj_con{width: 540px; max-height: 256px; overflow: hidden;  line-height: 18px;}
+.f1_C .c03 span{position: absolute; bottom: 6px; right: 24px; color: #ccc; cursor: pointer;}
+.f1_C .c03 span:hover{color: #f26552;}
+.f1_C .c03 span:hover s{background-position: -40px -18px;}
+.f1_C .c03 span s{width: 13px; height: 7px; float: right; margin: 5px 0 0 5px; background-position: -26px -18px;}
+.f1_C .c03 .zk_btn{display: block;}
+.f1_C .c03 .sq_btn{display: none;}
+.f1_C .c03 .sq_btn s{background-position: -54px -18px;}
+.f1_C .c03 .sq_btn:hover s{background-position: -69px -18px;}
+.f1_C .c04{padding: 40px 0 0 0;}
+.f1_C .c04 a{width: 64px; height: 34px; line-height: 34px; text-align: center; background: #d2d2d2; border-radius: 5px; color: #fff; font-size: 14px;}
+.f1_C .c04 .read{margin: 0 12px 0 22px; background: #f26552; width: 100px;}
+.f1_C .c04 .read:hover{background: #e5533f;}
+.f1_C .c04 .mulu:hover{background: #c4c4c4;}
+/* .f1_C .c04 .read:hover{background: #e10808;}
+.f1_C .c04 .mulu:hover{background: #8c8c8c;} */
+.f1_C .c05{width: 508px; font-size: 12px; background: #fbfbfb; margin: 54px auto 0; padding: 15px 15px; color: #666;}
+.f1_C .c05 a{color: #666; margin: 0 20px 0 0;}
+.f1_C .c05 a:hover{color: #f26552;}
+.f1_R{width: 180px; height: 474px; float: right; background: #fafafa; padding: 26px 12px 0;}
+.f1_R .shb_btn button{width: 160px; height: 34px; border: 1px solid #d2d2d2; background: #fff; border-radius: 4px; margin: 0 auto; display: block;}
+.f1_R .shb_btn button:hover{background: #f26552; border: 1px solid #f26552; color: #fff;}
+.f1_R .inf02{padding: 29px 0;}
+.f1_R .inf02 p{padding: 0 0 0 14px; line-height: 30px; font-size: 12px;}
+.f1_R h4{ color: #333; margin: 0 0 8px 0;}
+.f1_R h4 s{width: 7px; height: 13px; float: right; margin: 3px 0 0 15px; cursor: pointer;}
+.f1_R h4 .qh_L{background-position: 0 -29px;}
+.f1_R h4 .qh_L:hover{background-position: -18px -29px;}
+.f1_R h4 .qh_R{background-position: -9px -29px;}
+.f1_R h4 .qh_R:hover{background-position: -27px -29px;}
+.f1_R .zpzs{width: 180px; height: 102px; overflow: hidden;}
+.f1_R ul{width: 2000px; padding: 10px 0 0 0; overflow: hidden;}
+.f1_R ul li{float: left;}
+.f1_R ul li .book_cov{width: 72px; height: 90px; float: left; margin: 0 14px 0 0;} 
+.f1_R ul li .book_inf{float: left; width: 92px;}
+.f1_R ul li .book_inf a{width: 90px; font-size: 14px; margin: 0 0 18px; height: 40px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
+.f1_R .wzp{text-align: center;}
+.f1_R .wzp img{margin: 19px 0 14px 0;}
+/* 内容二  评论 */
+.f2{width: 1100px; overflow: hidden; background: #fff;}
+.f2_L{width: 808px; min-height: 1190px;  float: left; border-right: 1px solid #f0f0f0; padding: 0 0 44px 0;}
+.f2_L .pl_tit{height: 34px; border-bottom: 1px solid #f0f0f0; padding: 32px 24px 0 26px;}
+.f2_L .pl_tit h2{float: left; font-size: 18px; color: #333;}
+.f2_L .pl_tit h2 i{max-width: 410px; overflow: hidden;  white-space: nowrap; text-overflow: ellipsis; float: left;}
+.f2_L .pl_tit h2 b{float: left;}
+.sjxq .pl_tit h2{width: 90px;}
+.f2_L .pl_tit span{float: left; margin-top: 2px;}
+.f2_L .pl_tit .btn{float: right; width: 80px; height: 24px; line-height: 24px; text-align: center; color: #fff; background: #f26552; font-size: 12px; border-radius: 10px;}
+.f2_L .pl_tit .btn:hover{background: #e5533f;}
+.f2_L .pl_con{overflow: hidden;}
+.f2_L .pl_con ul{overflow: hidden; display: block;}
+.f2_L .pl_con ul li{padding: 28px 30px 0 26px; position: relative; overflow: hidden; border-bottom: 1px solid #f0f0f0;}
+/* 更新章节 */
+.f2_L .zj_con{padding: 20px 48px 30px;}
+.f2_L .zj_con .zj{color: #f26552;}
+.f2_L .zj_con .time{float: right; font-size: 12px;}
+.f2_L .zj_con .zw{padding: 12px 10px 0; line-height: 20px; font-size: 12px; color: #666;}
+/* 公共头像 */
+.f2_L .head_pic{width: 58px; height: 58px; border: 1px solid #f3f3f3; float: left; margin-right: 20px;}
+.f2_L .head_pic img{width: 100%; height: 100%;}
+.f2_L ul li .con_r{width: 670px; float: left; overflow: hidden;}
+.f2_L ul li .con_r .conT{overflow: hidden;}
+.f2_L ul li .con_r .conT h3{font-size: 16px; float: left; margin-right: 16px;}
+.f2_L ul li .con_r .conT h3 a{max-width: 300px;}
+.f2_L ul li .con_r .conT img{float: left; margin: 1px 10px 0 0;}
+.f2_L ul li .con_r .conT span{float: right; font-size: 12px; margin-top: 4px;}
+.f2_L ul li .con_r .conT .xhs{float: left; margin: 0;}
+.f2_L ul li .con_r .conT .xhs img{height: 18px; height: 18px; margin: 0;}
+.f2_L ul li .con_r .conT .xhs i{color: #f78b8b; margin: 4px 0 0 2px;}
+.f2_L ul li .con_r p{height: 58px; overflow: hidden; text-overflow: ellipsis;
+display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; margin: 20px 0 20px 0;}
+.f2_L ul li .jh_btn{float: right; font-size: 12px; overflow: hidden;}
+.f2_L ul li .jh_btn a{float: left; color: #9e9e9e;}
+.f2_L ul li .jh_btn a:hover{color: #f26552;}
+.f2_L ul li .jh_btn .zan s{width: 19px; height: 19px; background-position: -42px -30px; margin: -1px 6px 0 0;}
+.f2_L ul li .jh_btn .zan{padding: 8px 18px 0 0; height: 24px;}
+.f2_L ul li .jh_btn .zan:hover s{background-position: -64px -30px;}
+.f2_L ul li .jh_btn .ed{color: #f26552;}
+.f2_L ul li .jh_btn .ed s{background-position: -64px -30px;}
+.f2_L ul li .jh_btn .huifu{padding: 8px 6px 0 11px; height: 24px; cursor: pointer;}
+.f2_L ul li .jh_btn .huifu:hover{color: #f26552;}
+.f2_L ul li .jh_btn .huifu s{width: 17px; height: 15px; background-position: 0 -53px; margin: 3px 6px 0 0;}
+.f2_L ul li .jh_btn .huifu:hover s{background-position: -20px -53px;}
+.f2_L ul li .hftc{width: 582px; height: 126px; background: #fbfbfb; float: right; padding: 30px 44px 0; font-size: 12px; margin-bottom: 10px; display: none;}
+.f2_L ul li .hftc textarea{width: 560px; height: 38px; padding: 10px 10px 16px 10px; border: 1px solid #f0f0f0; overflow-y:hidden;  line-height: 18px;  margin-bottom: 12px;}
+.f2_L ul li .hftc .words{float: right; margin: 4px 14px 0 0;}
+.f2_L .submit{float: right; width: 46px; height: 24px; background: #f26552; line-height: 24px; border-radius: 4px; color: #fff;}
+.f2_L .submit:hover{background: #e5533f;}
+.f2_L .exp{color: #ffc600; margin: 5px 15px 0 0;}
+.f2_L .exp s{width: 19px; height: 19px; background-position: -40px -49px; margin: -1px 6px 0 0;}
+.f2_L .shm{color: #ffc600; margin: 5px 0 0 0; }
+.f2_L .shm s{width: 20px; height: 18px; background-position: -63px -50px; margin: 0 6px 0 0;}
+.f2_L .words{float: right; margin: 7px 14px 0 0;}
+.f2_L .words i{color: #333;}    
+ /* 点击回复  展示回复框 */
+.f2_L ul li .jh_btn .click{background: #fbfbfb; }
+.f2_L ul li .show{display: block;}
+.f2_L ul li .all_pl{float: left; margin: 0 auto; width: 809px; text-align: center;}
+.f2_L ul li .all_pl a{color: #ccc; margin: 16px 0;}
+.f2_L ul li .all_pl a:hover{color: #f26552;}
+.f2_L ul li .all_pl s{width: 20px; height: 1px; background-position: 0 -73px; float: left;  margin-top: 10px;}
+.f2_L ul li .all_pl i{float: left; margin: 0 12px;}
+.f2_L ul li .all_pl a:hover s{background-position: -23px -73px;}
+.f2_L .no_pl{text-align: center; margin-bottom: 100px;  display: none; }
+.f2_L .no_pl img{margin: 95px 0 32px;}
+.f2_L .no_pl p{font-size: 16px;}
+
+/* 我来评论 */
+.wlpl{padding: 0 0 0 26px; margin-top: 28px;}
+.wlpl h2{font-size: 18px; color: #333; margin: 0 0 24px 0;}
+.wlpl h2 s{width: 27px; height: 20px; background-position: 0 -77px; margin: 4px 8px 0 0;}
+.wlpl .xpl{float: left; width: 650px;}
+.wlpl .xpl input{width: 632px; height: 30px; border: 1px solid #f0f0f0; line-height: 30px; padding-left: 18px; margin: 0 0 14px 0;}
+.wlpl .xpl textarea{width: 614px; height: 156px; border: 1px solid #f0f0f0; padding: 10px 18px; margin: 0 0 18px 0;}
+.wlpl .xpl input:hover,.wlpl .xpl textarea:hover{border: 1px solid #ffcfc9;}
+.wlpl .xpl .submit{width: 98px; height: 32px; line-height: 32px;}
+.wlpl .xpl .submit:hover{background: #e5533f;}
+
+/* 右边内容 */
+/* 粉丝排行榜 */
+.f2_R{width: 250px; float: left; padding: 0 20px;}
+.f2_R h4{font-size: 16px; color: #333; margin: 26px 0 20px 0;}
+.f2_R h4 s{width: 9px; height: 13px; background-position: -31px -77px; margin: 4px 8px 0 0;}
+.f2_R .fsph{overflow: hidden; border-bottom: 1px solid #f0f0f0; padding-bottom: 15px;}
+.f2_R .fsph li{overflow: hidden; margin: 0 0 16px 0;}
+.f2_R .fsph li span{float: left; margin: 0 12px 0 0; width: 14px; text-align: center;}
+.f2_R .fsph li h3{width: 172px; float: left;}
+.f2_R .fsph li h3 a{max-width: 150px;}
+.f2_R .fsph li img{float: left;}
+.f2_R .fsph li .fsjf{float: left; font-size: 12px; padding: 4px 0 0 26px; display: none;}
+.f2_R .fsph li .fsjf i{color: #f26552;}
+.f2_R .fsph .on .fsjf{display: block;}
+
+/* 本书动态 */
+.f2_R .bsdt{overflow: hidden; border-bottom: 1px solid #f0f0f0; padding-bottom: 15px;}
+.f2_R .bsdt p{font-size: 12px; line-height: 20px; margin: 0 0 10px 0;}
+.f2_R .bsdt p span{color: #333;}
+.f2_R .bjtj{padding-left: 0;}
+.f2_R .bjtj ol{padding-top: 0;}
+
+/* 书籍评论页 */
+.pl_con ul li .changepage{float: left; padding-left: 185px;}
+.pl_con ul li .changepage a s{margin-left: 18px;}
+.f2_R .zpjs{overflow: hidden; border-bottom: 1px solid #f0f0f0; padding: 0 0 20px 0;}
+.f2_R .zpjs .book_cov{width: 180px; height: 225px; margin: 0 auto 18px;}
+.f2_R .zpjs p{margin-bottom: 10px;}
+.f2_R .zpjs p i{width: 66px;}
+
+/* 评论回复页 */
+.f2_L .pl_con .hf_con li{padding-left: 108px;}
+.f2_L .hf_con .head_pic{width: 38px; height: 38px;}
+.f2_L .hf_con li .con_r{width: 606px; float: left; overflow: hidden;}
+.f2_L .hf_con li .con_r .conT{overflow: hidden;}
+.f2_L .hf_con li .con_r .conT h3{font-size: 14px; float: left;}
+.f2_L .pl_con .hf_con li p{font-size: 12px; margin-top: 12px; line-height: 18px;}
+
+/* 评分 */
+.wypf{width: 500px; height: 334px;}
+.wypf .pfcon{padding: 30px 28px 0;}
+.pfcon p{color: #666;}
+.pfcon ul{overflow: hidden; padding: 32px 0 0 0;}
+.pfcon ul li{float: left; text-align: center; margin: 0 16px;}
+.pfcon ul li img{display: block; margin: 0 0 18px 0; cursor: pointer;}
+.pfcon ul li i{font-size: 12px;}

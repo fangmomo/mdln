@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">  
+<head>
+  <meta charset="UTF-8"/>
+  <title>萌动轻小说</title>
+  <link rel="stylesheet"  type="text/css" href="css/index.css"/>
+</head>
+<body bgcolor="#f9a672">
+  <div class="container">
+  	<!--头部-->
+	<div class="header">
+		<div class="top-link" >
+			<div class="normal-link">
+			  <div align="right">
+			  	<a id="username"></a>
+			    <a href="/RegisteViem" id="register">注册 /</a>
+			    <a href="/SignInViem" id="signin">登录</a>
+			    <a href="/logout" id="logout">退出</a>
+				<form action="/search" method="post">
+					<input type="text" name="searchkey" placeholder="搜索"/>
+					<button type="submit"></button>
+				</form>
+			  </div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="bosom">
+		<!--菜单-->
+		<div class="menu">
+			<ul>
+				<li>
+					<a href="/home">首页</a>
+					<ul class="submenu">
+						<li><a onclick="submit(this)">玄幻</a> <a onclick="submit(this)">言情</a></li>
+						<li><a onclick="submit(this)">都市</a> <a onclick="submit(this)">武侠</a></li>
+						<li><a onclick="submit(this)">灵异</a> <a onclick="submit(this)">热血</a></li>
+					</ul>
+				</li>
+				<li>
+					<a onclick="submit(this)">排行榜</a>
+				</li>
+				<li>
+					<a href="/author">作者专区</a>
+				</li>
+				<li>
+					<a href="/invoice_home">画师专区</a>	
+				</li>
+				<li>
+					<a href="/book_base">书库</a>	
+				</li>
+				<li>
+					<a href="/mysheet">我的书架</a>	
+				</li>
+				
+			</ul>
+		<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="98%" color=#FF6633 SIZE=3>
+		</div>
+		<!--轮播图-->
+		<div class="wrapout">
+			<div class="wrap" style="left:0px;">
+			  <a onclick="submit3(this)" name="哥布林杀手"><img src="img/banner1.png" alt="1"/></a>
+			  <a onclick="submit3(this)" name="平A=两次全体攻击的老妈你喜欢吗？"><img src="img/banner2.png" alt="2"/></a>
+			  <a onclick="submit3(this)" name="幼女战记"><img src="img/banner3.png" alt="3"/></a>
+		  </div>
+			<div class="buttons">
+			  <span class="on"></span>
+			  <span></span>
+			  <span></span>    </div>
+			<a href="javascript:;" rel="external nofollow" class="arrow arrow_left"><</a>
+			<a href="javascript:;" rel="external nofollow" class="arrow arrow_right">></a>  
+		</div>
+		<!-- 热门作品-->
+		<div class="hot">
+			<div class="adv1">
+			<a href="https://mp.weixin.qq.com/s/Xl_FCTk-s_HBAmRyGlJLaA"><img src="img/adv/adv1.png"></img></a>
+			</div>
+			<!--小说列表-->
+			<ul class="storylist" >
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+							<img class="block-img" alt="1" src="img/cover/cover0.jpg"/>
+						</a>
+						<!--小说信息-->
+					</div>
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>		
+				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="2" src="img/cover/cover1.jpg" /></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="3" src="img/cover/cover2.jpg"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="4" src="img/cover/cover3.jpg"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="1" src="img/cover/cover4.jpg"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="2" src="img/cover/cover5.jpg"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="3" src="img/cover/cover6.jpg"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="4" src="img/cover/cover7.jpg" /></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+			</ul>
+		</div>
+		<form id="myform" action="detafromhome" method="post">
+			<input type="hidden" id="bookname" name="bookname" value="value"/>
+			<input type="hidden" id="author" name="author" value="value"/>
+		</form>
+		<!--新作推荐-->
+		<div class="new">
+			<div class="adv2">
+				<a href="https://mp.weixin.qq.com/s/-C1nPeISB_zMA11qheafoQ"><img src="img/adv/adv2.png"></img></a>
+			</div>
+			<ul class="storylist">
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="1" src="img/cover/cover8.jpg" /></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="2" src="img/cover/cover9.jpg" /></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="3" src="img/cover/cover10.jpg" /></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a onclick="submit2(this)" class="cover_pic" name="">
+						<img class="block-img" alt="4" src="img/cover/cover11.jpg" /></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a onclick="submit(this)" class="biaoti">暂无信息</a></p>
+					</div>			</li>
+			</ul>
+		</div>
+		<!--分类推荐-->
+		<div class="class-recmd">
+			<div class="adv3">
+				<a href="https://mp.weixin.qq.com/s/uuaDR2zTEbEbNJlmA7fR1g"><img src="img/adv/adv3.png"></img></a>
+			</div>
+			<ul class="class-story">
+				<li>
+					<div id="class-recmd_li">
+						<div class="pic">
+							<a onclick="submit2(this)" class="cover_pic" name="">
+							<img class="block-img" alt="4" src="img/cover/cover12.jpg" /></a>
+						</div>
+						
+						<div class="novel-des">
+							<p class="bookdesc"></p>
+						</div>  
+						<div class="same-class">
+							<p class="book_info"></p>					
+						</div>
+					</div>
+				</li>
+				<li>
+					<div id="class-recmd_li">
+						<div class="pic">
+							<a onclick="submit2(this)" class="cover_pic" name="">
+							<img class="block-img" alt="4" src="img/cover/cover13.jpg" /></a>
+							
+						</div>
+						<div class="novel-des">
+							<p class="bookdesc"></p>
+						</div>
+							<div class="same-class">
+							<p class="book_info"></p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!--动态-->
+		<!-- <div class="dongtai">
+			<div class="author">
+				<p>作者动态</p>
+				<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="98%" color=#FF6633 SIZE=3>
+			</div>
+			<div class="painter">
+				<p>画师动态</p>
+				<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="98%" color=#FF6633 SIZE=3>
+			</div>
+		</div> -->
+	</div>
+</div>
+  <script th:inline="javascript">
+window.onload = function(){
+  	document.getElementById("username").style.display="none";
+	document.getElementById("logout").style.display="none";
+ 	if (document.cookie.length > 0){
+ 		var search = "username="
+ 		var	sd = document.cookie.indexOf(search);
+ 		var end;
+ 		var namevalue;
+ 		if (sd!= -1){
+ 			sd += search.length;
+ 			end = document.cookie.indexOf(";", sd);
+ 			if (end == -1)
+ 		         end = document.cookie.length;
+ 			namevalue=document.cookie.substring(sd, end);
+ 			document.getElementById("username").innerHTML =namevalue;
+ 			document.getElementById("register").style.display="none";
+ 			document.getElementById("username").style.display="";
+ 			document.getElementById("signin").style.display="none";
+ 			document.getElementById("logout").style.display="";
+ 		}	
+ 	}
+ 	/*<![CDATA[*/
+		window.bookslist = /*[[${session.rebooks}]]*/; 	
+	/*]]>*/
+ 		window.bookjson = JSON.parse(bookslist);
+ 		window.booklen = bookjson.length;
+		var titlelist = document.getElementsByClassName("biaoti");
+		var cover_img = document.getElementsByClassName("block-img");
+	 	var book_desc = document.getElementsByClassName("bookdesc");
+	 	var book_info = document.getElementsByClassName("book_info");
+	 	var cover_pic = document.getElementsByClassName("cover_pic");
+	 	
+		for(var i=0;i<parseInt(booklen);i++){
+			
+			cover_pic[parseInt(i)].setAttribute("name",bookjson[parseInt(i)].bookname);
+			
+			if(parseInt(i)>11){
+				book_desc[parseInt(i)-12].innerHTML = bookjson[parseInt(i)].bookname+"</br>"+bookjson[parseInt(i)].author;
+				book_info[parseInt(i)-12].innerHTML = bookjson[parseInt(i)].info;
+			}else{
+				if(bookjson[parseInt(i)].bookname.length>9)
+					titlelist[parseInt(i)].innerHTML=bookjson[parseInt(i)].bookname.substring(0,7)+"...";
+				else
+					titlelist[parseInt(i)].innerHTML=bookjson[parseInt(i)].bookname;
+			}
+		}
+ 	//使用document.getElementByClassName获取Nodelist集合 在根据数据库中的来展示数据
+}
+  	function submit(obj){
+  		var bookname = obj.innerHTML;
+  		for(var j=0;j<parseInt(booklen);j++){
+  			if(bookjson[parseInt(j)].bookname.indexOf(bookname)>-1){
+  				document.getElementById("bookname").value=bookjson[parseInt(j)].bookname;
+  				document.getElementById("author").value=bookjson[parseInt(j)].author;
+  				break;
+  			}
+  		}
+  		document.getElementById("myform").submit();
+  	}
+  	function submit2(obj){
+  		var bookname = obj.name;
+  		for(var j=0;j<parseInt(booklen);j++){
+  			if(bookname==bookjson[parseInt(j)].bookname){
+  				document.getElementById("bookname").value=bookname;
+  				document.getElementById("author").value=bookjson[parseInt(j)].author;
+  				break;
+  			}
+  		}
+  		document.getElementById("myform").submit();
+  	}
+  	function submit3(obj){
+  		var bookname = obj.name;
+  		document.getElementById("bookname").value=bookname;
+  		document.getElementById("author").value="lin123456";
+  		document.getElementById("myform").submit();
+  	}
+    var wrap = document.querySelector(".wrap");
+    var next = document.querySelector(".arrow_right");
+    var prev = document.querySelector(".arrow_left");
+    next.onclick = function () {
+      next_pic();
+    }
+    prev.onclick = function () {
+      prev_pic();
+    }
+    
+    function next_pic () {
+      index++;
+      if(index > 2){
+        index = 0;
+      }
+      showCurrentDot();
+      var newLeft;
+      if(wrap.style.left === "-2200px"){
+        newLeft = 0;
+      }else{
+        newLeft = parseInt(wrap.style.left)-1100;
+      }
+      wrap.style.left = newLeft + "px";
+    }
+    
+    function prev_pic () {
+      index--;
+      if(index < 0){
+        index = 2;
+      }
+      showCurrentDot();
+      var newLeft;
+      if(wrap.style.left === "0px"){
+        newLeft = -2200;
+      }else{
+        newLeft = parseInt(wrap.style.left)+1100;
+      }
+      wrap.style.left = newLeft + "px";
+    }
+    var timer = null;
+    function autoPlay () {
+      timer = setInterval(function () {
+        next_pic();
+      },20000);
+    }
+    autoPlay();
+    var container = document.querySelector(".container");
+    container.onmouseenter = function () {
+      clearInterval(timer);
+    }
+    container.onmouseleave = function () {
+      autoPlay();  
+    }
+    var index = 0;
+    var dots = document.getElementsByTagName("span");
+    function showCurrentDot () {
+      for(var i = 0, len = dots.length; i < len; i++){
+        dots[i].className = "";
+      }
+      dots[index].className = "on";
+    }
+    for (var i = 0, len = dots.length; i < len; i++){
+      (function(i){
+        dots[i].onclick = function () {
+          var dis = index - i;
+          if(index == 2 && parseInt(wrap.style.left)!==-3000){
+            dis = dis - 3;   
+          }
+          //和使用prev和next相同，在最开始的照片5和最终的照片1在使用时会出现问题，导致符号和位数的出错，做相应地处理即可
+          if(index == 0 && parseInt(wrap.style.left)!== -600){
+            dis = 3 + dis;
+          }
+          wrap.style.left = (parseInt(wrap.style.left) + dis * 600)+"px";
+          index = i;
+          showCurrentDot();
+        }
+      })(i);      
+    }
+  </script>
+</body>
+</html>

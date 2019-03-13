@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.{
+				width: 100%;
+				height: 100%;
+				font-size: 14px;
+			}
+			* {
+				margin:0;
+				padding:0;
+				* {}
+			}
+			p{
+				font-size: 16px;
+				display: inline;
+			}
+			span{
+				font-size: 14px;
+			}
+			input{
+				position: relative;
+			}
+				
+			.headpic{
+				padding: 0px;
+				margin: 0px;
+				position: relative;
+				margin-left: auto;
+				margin-right: auto;
+				width: 60%;
+			}
+				
+			img{
+				width: 100%;
+			}
+			.container{
+				position: relative;
+				width: 60%;
+				height: 100%;
+				margin-left: auto;
+				margin-right: auto;
+				padding: 2em;
+			}
+			#span1{
+				font-size: 20px;
+				font-weight: 400;
+			}
+			.require_div{
+				background:url(img/invoice/back.png);
+				border:1px solid antiquewhite;
+				width: 100%;
+				height: 100%;
+				margin-top: 20px;
+			}
+			.require_form{
+				padding-left: 2em;
+			}
+			.div_title{
+				display: block;
+				font-size: 20px;
+				color: orange;
+				text-align:center;
+			}
+			.list{
+				width: 100%;
+				height: 100%;
+				border-bottom:1px solid antiquewhite;
+				margin-top: 25px;
+				padding-bottom: 25px;
+			}
+			.span_grey{
+				display: block;
+				margin-bottom: 10px;
+			}
+			#textarea{
+				width: 75%;
+				height: 60%;
+				display: block;
+				resize:none;
+				margin-top: 10px;
+			}
+			.select_title{
+				width: 25%;
+				float: left;
+				position: relative;
+				dispaly:inline-block;
+				padding: 3px;
+			}
+			.select_content{
+				position: relative;
+				dispaly:inline-block;
+				width: 75%;
+				margin-left:35%;
+				padding: 3px;
+			}
+			.ex_image1{
+				height:200px;
+				background:url(img/invoice/upimage.png);
+				background-size:contain;
+				position:relative;
+				width: 200px;
+			}
+			.upfile{
+				height:50px;
+				background:url(img/invoice/upfile.png);
+				background-size:contain;
+				position:relative;
+				width: 500px;
+			}
+			.upload{
+				height:100px;
+				overflow: hidden;
+				font-size: 300px;
+				position:absolute;
+				right:0;
+				top:0;
+				opacity: 0;
+				filter:alpha(opacity=0);
+				cursor:pointer;
+			}
+			.submit{
+				position: relative;
+				width: 20%;
+				height: 40px;
+				left: 40%;
+				background-color: darkorange;
+				border-style:none;
+				margin-top: 20px;
+				cursor:pointer;
+				font-size: 24px;
+				color: wheat;
+				letter-spacing:10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="headpic">
+			<img src="img/bgmain.jpg" >
+		</div>
+		<div class="container">
+			<p><span id="span1">请填写详细要求，</span><span>便于画师更好的报价和完成稿件</span></span>
+			<div class="require_div">
+				<p class="div_title">在黑线上填要求内容</p>
+				<form class="require_form" action="/upload_require"  onsubmit="return validate_form(this)" method="post" id="re_form">
+					<!--风格-->
+					<div id="style" class="list">
+						<div class="select_title">
+							<p>风格要求</p>
+						</div>
+						<div class="select_content">
+							<input type="radio"name="style" value="1" checked /><span>有风格要求</span>
+							<input type="radio"name="style" value="0" /><span>风格无限</span>
+						</div>
+					</div>
+					<!--颜色模式-->
+					<div id="color_style" class="list">
+						<div class="select_title">
+							<p>稿件颜色模式</p>
+						</div>
+						<div class="select_content">
+							<input type="radio"name="color_style" value="RGB" checked /><span>RGB模式（用于网络传输）</span>
+							<input type="radio"name="color_style" value="CMYK" /><span>CMYK模式（用于印刷品）</span>
+							<input type="radio"name="color_style" value="FREE" /><span>自定义</span>
+						</div>
+					</div>
+					<!--画师可否公开发布稿件-->
+					<div id="is_public" class="list">
+						<div class="select_title">
+							<p>画师可否公开发布稿件</p>
+						</div>
+						<div class="select_content">
+							<input type="radio"name="is_public" value="public" checked /><span>可以自由公布</span>
+							<input type="radio"name="is_public" value="public_limited" /><span>需按约定公开发布</span>
+							<input type="radio"name="is_public" value="no-public" /><span>不可公开发布</span>
+						</div>
+					</div>
+					<!--需求描述-->
+					<div id="require_desc" class="list">
+						<div class="select_title">
+							<p>需求描述</p>
+						</div>
+						<div class="select_content">
+							<span class="span_grey">请简单描述您的稿件内容元素或填写其它有助于画师理解需求的说明。</br>清晰的需求描述可以提高160%的画师应征率。</span>
+							<textarea cols="50" rows="5" class="textarea" name="desc">默认无
+							</textarea>
+							<span class="span_grey">例：稿件将用于XXX游戏的人物,大约需要20张.</span>
+						</div>
+					</div>
+					<!--报价-->
+					<div id="require_price" class="list">
+						<div class="select_title">
+							<p>报价：</p>
+						</div>
+						<div class="select_content">
+							<input type="text" name="price"/>
+						</div>
+					</div>
+					<!--试稿要求-->
+					<div id="check_require"  class="list">
+						<div class="select_title">
+							<p>试稿要求</p>
+						</div>
+						<div class="select_content">
+							<span class="span_grey">你是否需要在和画师正式合作之前，进行一个测试来检查画师是否</br>正真符合您的需求？</span>
+							<input type="radio"name="check_require" value="0" checked /><span>不需要试稿</span>
+							<input type="radio"name="check_require" value="-1" /><span>无偿试稿</span>
+							<input type="radio"name="check_require" value="1" /><span>有偿试稿</span>
+						</div>
+					</div>
+					<!--反馈时间要求-->
+					<div id="reponse_time_require" class="list">
+						<div class="select_title">
+							<p>反馈时间要求</p>
+						</div>
+						<div class="select_content">
+							<span class="span_grey">你希望画师开始工作时，按照怎样的频率向您反馈进度？</span>
+							<input type="date" name="reponse_time"/>
+						</div>
+					</div>
+					<!--参考例图-->
+					<div id="example_image" class="list">
+						<div class="select_title">
+							<p>参考例图</p>
+						</div>
+						<div class="select_content">
+							<span class="span_grey">请上传与您期待效果接近的参考例图，</br>上传恰当的参考例图可以提高110%的画师应征率。</span>
+							<div class="ex_image1">
+								<input class="upload" type="file"/>
+							</div>
+						</div>
+					</div>
+					<!--相关附件-->
+					<div class="list">
+						<div class="select_title">
+							<p>相关附件</p>
+						</div>
+						<div class="select_content">
+							<span class="span_grey">你可以上传其它可以帮助画师理解需求的文档，格式不限</span>
+							<div calss="upfile">
+								<input class="upload" type="file"/>
+							</div>
+						</div>
+					</div>
+					<input class="submit" type="submit" value="确定" />
+				</form>
+			</div>
+			
+		</div>
+		<script>
+			function validate_required(field,alerttxt)
+			{
+				with (field)
+				  {
+				  if (value==null||value=="")
+					{alert(alerttxt);return false;}
+				  else {return true;}
+				  }
+			}
+			function validate_form(thisform)
+			{
+				with (thisform)
+				{
+				  if (validate_required(price,"Price must be filled out!")==false)
+					{price.focus();return false;}
+				  
+				  if (validate_required(reponse_time,"reponse_time must be filled out!")==false)
+								{reponse_time.focus();return false;}
+				  
+				}
+				alert("提交成功");
+			}
+		</script>
+	</body>
+</html>

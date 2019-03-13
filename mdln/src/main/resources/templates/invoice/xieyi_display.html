@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.{
+				width: 100%;
+				height: 100%;
+				font-size: 14px;
+			}
+			p{
+				margin: 0px;
+			}
+			ul li{
+				list-style: none;
+			}
+			#container{
+				position: relative;
+				top:40px;
+				width: 70%;
+				height: 100%;
+				margin-left: auto;
+				margin-right: auto;
+				border:1px solid brown;
+				padding: 0px;
+			}
+			#invoice_table{
+				position: relative;
+				width:100%;
+				height:100%;
+				padding: 0px;
+				margin: 0px;
+				background: brown;
+			}
+			.invoice_item{
+				position: relative;
+				background: white;
+				display: inline-block;
+				margin-left: 2%;
+				margin-right: 1%;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				width:46%;
+				height:25%;
+			}
+			.item_div{
+				width:100%;
+				height:25%;
+				padding: 10px;
+				padding-left: 0px;
+			}
+			.bookname_div{
+				width: 45%;
+				float: left;
+				position: relative;
+				dispaly:inline-block;
+				padding-left: 10px;
+			}
+			.bookname{
+				width: 100%;
+				font-weight: 500;
+				font-size: 24px;
+				margin-top: 5px;
+				margin-bottom: 5px;
+			}
+			.create_time{
+				margin: 0px;
+				width: 100%;
+				font-size: 14px;
+				color: darkgray;
+			}
+			.price_div{
+				position: relative;
+				dispaly:inline-block;
+				width: 45%;
+				margin-left:50%;
+				padding: 5px;
+			}
+			.price{
+				font-size: 16px;
+				color: yellow;
+				margin-right: 5px;
+				font-weight: 500;
+			}
+			.price_p{
+				position: relative;
+				text-align: right;
+				right: 0px;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				font-size: 14px;
+				color: darkgray;
+			}
+			.beizhu{
+				width: 100%;
+				margin-top: 2em;
+			}
+			.end_time_div{
+				width:25%;
+				text-align: center;
+				display: inline-block;
+			}
+			.endtime{
+				position: relative;
+				font-size: 14px;
+				color: darkgray;
+			}
+			.style_div{
+				width:25%;
+				text-align: center;
+				display: inline-block;
+			}
+			.style{
+				position: relative;
+				font-size: 14px;
+				color: darkgray;
+			}
+			.pnumber_div{
+				width:25%;
+				text-align: center;
+				display: inline-block;
+			}
+			.pnumber{
+				position: relative;
+				font-size: 14px;
+				color: darkgray;
+			}
+			.chat_div{
+				width:20%;
+				text-align: center;
+				display: inline-block;
+			}
+			button{
+				position: relative;
+				background: #fff;
+				border: 1px solid darkgray;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<ul id="invoice_table">
+				<li class="invoice_item">
+					<div class="item_div">
+						<div class="bookname_div">
+								<p class="bookname">书名</p>
+								<p class="create_time">发布于1010-12-12</p>
+						</div>
+						<div class="price_div">
+							<p class="price_p"><span class="price">100~200</span>RMB/张</p>
+						</div>
+						<div class="beizhu">
+							<div class="end_time_div">
+								<p class="endtime">截稿日期</p></wbr>
+								<p class="end_time">1</p>
+							</div>
+							<div class="style_div">
+								<p class="style">风格要求</p></wbr>
+								<p class="style_c">1</p>
+							</div>
+							<div class="pnumber_div">
+								<p class="pnumber">应征人数</p></wbr>
+								<p class="pernumber">1</p>
+							</div>
+							<div class="chat_div">
+								<button onclick="connect_author(this)" value='0'>联系作者</button>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="invoice_item">
+					<div class="item_div">
+						<div class="bookname_div">
+								<p class="bookname">书名</p>
+								<p class="create_time">发布于1010-12-12</p>
+						</div>
+						<div class="price_div">
+							<p class="price_p"><span class="price"></span>RMB/张</p>
+						</div>
+						<div class="beizhu">
+							<div class="end_time_div">
+								<p class="endtime">截稿日期</p></wbr>
+								<p class="end_time">1</p>
+							</div>
+							<div class="style_div">
+								<p class="style">风格要求</p></wbr>
+								<p class="style_c">1</p>
+							</div>
+							<div class="pnumber_div">
+								<p class="pnumber">应征人数</p></wbr>
+								<p class="pernumber">1</p>
+							</div>
+							<div class="chat_div">
+								<button onclick="connect_author(this)" value='1'>联系作者</button>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="invoice_item">
+					<div class="item_div">
+						<div class="bookname_div">
+								<p class="bookname">书名</p>
+								<p class="create_time">发布于1010-12-12</p>
+						</div>
+						<div class="price_div">
+							<p class="price_p"><span class="price"></span>RMB/张</p>
+						</div>
+						<div class="beizhu">
+							<div class="end_time_div">
+								<p class="endtime">截稿日期</p></wbr>
+								<p class="end_time">1</p>
+							</div>
+							<div class="style_div">
+								<p class="style">风格要求</p></wbr>
+								<p class="style_c">1</p>
+							</div>
+							<div class="pnumber_div">
+								<p class="pnumber">应征人数</p></wbr>
+								<p class="pernumber">1</p>
+							</div>
+							<div class="chat_div">
+								<button onclick="connect_author(this)" value='2'>联系作者</button>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="invoice_item">
+					<div class="item_div">
+						<div class="bookname_div">
+								<p class="bookname">书名</p>
+								<p class="create_time">发布于1010-12-12</p>
+						</div>
+						<div class="price_div">
+							<p class="price_p"><span class="price"></span>RMB/张</p>
+						</div>
+						<div class="beizhu">
+							<div class="end_time_div">
+								<p class="endtime">截稿日期</p></wbr>
+								<p class="end_time">1</p>
+							</div>
+							<div class="style_div">
+								<p class="style">风格要求</p></wbr>
+								<p class="style_c">1</p>
+							</div>
+							<div class="pnumber_div">
+								<p class="pnumber">应征人数</p></wbr>
+								<p class="pernumber">1</p>
+							</div>
+							<div class="chat_div">
+								<button onclick="connect_author(this)" value='3'>联系作者</button>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="invoice_item">
+					<div class="item_div">
+						<div class="bookname_div">
+								<p class="bookname">书名</p>
+								<p class="create_time">发布于1010-12-12</p>
+						</div>
+						<div class="price_div">
+							<p class="price_p"><span class="price"></span>RMB/张</p>
+						</div>
+						<div class="beizhu">
+							<div class="end_time_div">
+								<p class="endtime">截稿日期</p></wbr>
+								<p class="end_time">1</p>
+							</div>
+							<div class="style_div">
+								<p class="style">风格要求</p></wbr>
+								<p class="style_c">1</p>
+							</div>
+							<div class="pnumber_div">
+								<p class="pnumber">应征人数</p></wbr>
+								<p class="pernumber">1</p>
+							</div>
+							<div class="chat_div">
+								<button onclick="connect_author(this)" value='4'>联系作者</button>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="invoice_item">
+					<div class="item_div">
+						<div class="bookname_div">
+								<p class="bookname">书名</p>
+								<p class="create_time">发布于1010-12-12</p>
+						</div>
+						<div class="price_div">
+							<p class="price_p"><span class="price"></span>RMB/张</p>
+						</div>
+						<div class="beizhu">
+							<div class="end_time_div">
+								<p class="endtime">截稿日期</p></wbr>
+								<p class="end_time">1</p>
+							</div>
+							<div class="style_div">
+								<p class="style">风格要求</p></wbr>
+								<p class="style_c">1</p>
+							</div>
+							<div class="pnumber_div">
+								<p class="pnumber">应征人数</p></wbr>
+								<p class="pernumber">1</p>
+							</div>
+							<div class="chat_div">
+								<button onclick="connect_author(this)" value='5'>联系作者</button>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="invoice_item">
+					<div class="item_div">
+						<div class="bookname_div">
+								<p class="bookname">书名</p>
+								<p class="create_time">发布于1010-12-12</p>
+						</div>
+						<div class="price_div">
+							<p class="price_p"><span class="price"></span>RMB/张</p>
+						</div>
+						<div class="beizhu">
+							<div class="end_time_div">
+								<p class="endtime">截稿日期</p></wbr>
+								<p class="end_time">1</p>
+							</div>
+							<div class="style_div">
+								<p class="style">风格要求</p></wbr>
+								<p class="style_c">1</p>
+							</div>
+							<div class="pnumber_div">
+								<p class="pnumber">应征人数</p></wbr>
+								<p class="pernumber">1</p>
+							</div>
+							<div class="chat_div">
+								<button onclick="connect_author(this)" value='6'>联系作者</button>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="invoice_item">
+					<div class="item_div">
+						<div class="bookname_div">
+								<p class="bookname">书名</p>
+								<p class="create_time">发布于1010-12-12</p>
+						</div>
+						<div class="price_div">
+							<p class="price_p"><span class="price"></span>RMB/张</p>
+						</div>
+						<div class="beizhu">
+							<div class="end_time_div">
+								<p class="endtime">截稿日期</p></wbr>
+								<p class="end_time">1</p>
+							</div>
+							<div class="style_div">
+								<p class="style">风格要求</p></wbr>
+								<p class="style_c">1</p>
+							</div>
+							<div class="pnumber_div">
+								<p class="pnumber">应征人数</p></wbr>
+								<p class="pernumber">1</p>
+							</div>
+							<div class="chat_div">
+								<button onclick="connect_author(this)" value='7'>联系作者</button>
+							</div>
+						</div>
+					</div>
+				</li>		
+			</ul>
+			<form id="connect_fomr" action="/chat_author" method="post" target="_blank">
+				<input type="hidden" id="input_pid" name="publicer_id" value=""/>
+			</form>
+			<form id="invo_detail" action="/invo_detail" method="post">
+				<input type="hidden" id="input_li_index" name="li_index" value=""/>
+			</form>
+		</div>
+		<script th:inline="javascript">
+			window.onload = function(){
+				/*<![CDATA[*/
+					window.invoiceList = /*[[${session.all_invoice}]]*/; 	
+				/*]]>*/
+				window.invoicejson = JSON.parse(invoiceList);
+				window.invoicelen = invoicejson.length;
+				
+				var booknamelist = document.getElementsByClassName("bookname");
+				var create_timelist = document.getElementsByClassName("create_time");
+				var pricelist = document.getElementsByClassName("price");
+				var endtimelist = document.getElementsByClassName("end_time");
+				var stylelist = document.getElementsByClassName("style_c");
+				
+				var itemlist = document.getElementsByClassName("invoice_item");
+
+
+				if(parseInt(invoicelen)<8){
+					for(var i = parseInt(invoicelen);i<8;i++)
+						itemlist[i].style.display="none";
+				}
+				for(var i=0;i<parseInt(invoicelen);i++){
+					booknamelist[i].innerHTML = invoicejson[i].bookname;
+					create_timelist[i].innerHTML = invoicejson[i].public_time;
+					pricelist[i].innerHTML = invoicejson[i].price;
+					endtimelist[i].innerHTML = invoicejson[i].reponse_time;
+					
+					if(invoicejson[i].style=="1")
+						stylelist[i].innerHTML="有风格要求";
+					else
+						stylelist[i].innerHTML="无风格要求";
+				}
+				setlionclick();
+			}
+			
+			function connect_author(obj){
+				var value = obj.value;
+				var pid = parseInt(value);
+				document.getElementById("input_pid").value=invoicejson[parseInt(value)].publicer_id;
+				document.getElementById('connect_fomr').submit();	
+			}
+
+			function setlionclick(){
+				var oli = document.getElementsByTagName("li");
+				 for(var i=0; i<oli.length; i++){
+			        (function(j){
+			            oli[j].onclick = function () {
+			            	document.getElementById("input_li_index").value= j;
+				        	document.getElementById('invo_detail').submit();
+			        	};
+			        })(i)
+				 }
+			}
+		</script>
+	</body>
+</html>
