@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org"/> 
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="ie-stand"/>
+
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link type="text/css" rel="stylesheet" href="css/sjxqy.css"/>
+</head>
+<body>
+<!--公共头部 开始-->
+<div class="header">
+    <div class="headWrap">
+        <h1>
+            <a href="/">
+                <img src="img/author/author_title1.png" alt="掌阅小说网" title="掌阅小说网"/>
+            </a>
+        </h1>
+        <ul class="nav">
+                    <li>
+                <a href="http://yc.ireader.com.cn/" target="_self" title="首页">首页</a>
+            </li>
+                    <li>
+                <a href="http://yc.ireader.com.cn/books/" target="_self" title="书库">书库</a>
+            </li> 
+                </ul>
+        <div class="headWrap_r">
+            <div class="login">
+                     <span class="login_before" ><a href="/login" ><i id="login">登录</i></a></span>
+                     <span class="login_before" ><a href="" ><i id="username"></i></a></span>
+                     <span class="login_before" style="display:none"><a href="/logout" ><i id="logout">退出</i></a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--公共头部 结束-->
+
+
+<!--内容 开始-->
+<div class="content">
+    <!--书的信息 开始-->
+    <div class="f1">
+        <div class="f1_box">
+          
+            <div class="f1_L">
+                <a href="/home" title="萌动" class="book_cov">
+                    <img src="img/background.jpg" id="cover" class="lazyload_book_cover" alt="封面" style="display: inline;"/>
+                </a>
+                <div class="btn">
+                    <a href="javascript:;" class="sc"  data-bid="74089" data-act="add">
+                        <p>加入书架</p>
+                    </a>
+                </div>
+            </div>
+            <div class="f1_C book_inf">
+                <div class="c01">
+                    <h3><a href="http://yc.ireader.com.cn/book/74089/" id="sm"></a></h3>
+                </div>
+                <p class="c02">
+                    <span class="zz" id="author">作者：</span>
+                </p>
+                <div class="c03">
+                    <p class="jianjie">简介</p>
+                    <div class="c03_box">
+                        <p class="jj_con" id="book_desc" style="height: 54px;"></p>
+                    </div>
+                </div>
+                <div class="c04">
+                       <a class="read" onclick=window.form.submit()>立即阅读</a>
+                       <form method="post" action="/read" name="form">
+                       		<input  type="hidden" id="bookname" name="bookname" value=''/>
+                       		<input  type="hidden" id="zuozhe" name="author" value=''/>
+                       		<input  type="hidden" id="zjs" name="zjs" value='1'/>
+                       </form>
+                </div>
+
+            </div>
+        </div>
+
+        </div>
+    </div>
+    <!--书的信息 结束-->
+    <script th:inline="javascript" >
+	document.getElementById("logout").style.display="none";
+    if (document.cookie.length > 0){
+ 		var search = "username="
+ 		var	sd = document.cookie.indexOf(search);
+ 		var end;
+ 		var namevalue;
+ 		if (sd!= -1){
+ 			sd += search.length;
+ 			end = document.cookie.indexOf(";", sd);
+ 			if (end == -1)
+ 		         end = document.cookie.length;
+ 			namevalue=document.cookie.substring(sd, end);
+ 			document.getElementById("username").innerHTML =namevalue;
+ 			document.getElementById("login").style.display="none";
+ 			document.getElementById("logout").style.display="";
+ 		}	
+ 	}
+    
+    
+	    /*<![CDATA[*/
+			window.book = /*[[${session.curr_bookstring}]]*/; 	
+			window.books = /*[[${session.rebooks}]]*/;
+		/*]]>*/
+		var bookjson = JSON.parse(book);
+		var booksjson = JSON.parse(books);
+		
+		//修改书本详细界面信息
+    	//document.getElementById("cover").src="img/background.jpg";
+			
+    	document.getElementById("sm").innerHTML = bookjson.bookname;
+    	document.getElementById("bookname").value= bookjson.bookname;
+    	
+    	document.getElementById("author").innerHTML = "作者："+bookjson.author;
+    	document.getElementById("zuozhe").value=bookjson.author;
+    	document.getElementById("book_desc").innerHTML =bookjson.info;
+		
+		for(var i=0;i<parseInt(booksjson.length);i++){
+			if(booksjson[parseInt(i)].bookname.indexOf(bookjson.bookname)>-1){
+				document.getElementById("cover").src="img/cover/cover"+i+".jpg";
+			}
+		}
+		
+		
+    	
+    </script>
+</body></html>

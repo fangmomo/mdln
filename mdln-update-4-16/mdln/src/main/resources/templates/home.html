@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">  
+<head>
+  <meta charset="UTF-8"/>
+  <title>萌动轻小说</title>
+  <link rel="stylesheet"  type="text/css" href="css/index.css"/>
+</head>
+<body bgcolor="#f9a672">
+  <div class="container">
+  	<!--头部-->
+	<div class="header">
+		<div class="top-link" >
+			<div class="normal-link">
+			  <div align="right">
+			  	<a id="username" th:text="${username}" th:if="${username!=null}"></a>
+			    <a href="/RegisteViem" th:if="${username==null}" >注册 /</a>
+			    <a href="/SignInViem"  th:if="${username==null}" >登录</a>
+			    <a href="/logout"  th:if="${username!=null}">退出</a>
+				<form action="/search" method="post">
+					<input type="text" name="searchkey" placeholder="搜索"/>
+					<button type="submit"></button>
+				</form>
+			  </div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="bosom">
+		<!--菜单-->
+		<div class="menu">
+			<ul>
+				<li>
+					<a href="/home">首页</a>
+					<ul class="submenu">
+						<li><a onclick="#">玄幻</a> <a onclick="#">言情</a></li>
+						<li><a onclick="#">都市</a> <a onclick="#">武侠</a></li>
+						<li><a onclick="#">灵异</a> <a onclick="#">热血</a></li>
+					</ul>
+				</li>
+				<li>
+					<a onclick="submit(this)">排行榜</a>
+				</li>
+				<li>
+					<a href="/author">作者专区</a>
+				</li>
+				<li>
+					<a href="/invoice_home">画师专区</a>	
+				</li>
+				<li>
+					<a href="/book_base">书库</a>	
+				</li>
+				<li>
+					<a href="/mysheet">我的书架</a>	
+				</li>
+				
+			</ul>
+		<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="98%" color=#FF6633 SIZE=3>
+		</div>
+		<!--轮播图-->
+		<div class="wrapout">
+			<div class="wrap" style="left:0px;">
+			  <a href="/detafromhome?bookname=哥布林杀手&author=lin123456" name="哥布林杀手"><img src="img/banner1.png" alt="1"/></a>
+			  <a href="/detafromhome?bookname=平A=两次全体攻击的老妈你喜欢吗？&author=lin123456" name="平A=两次全体攻击的老妈你喜欢吗？"><img src="img/banner2.png" alt="2"/></a>
+			  <a href="/detafromhome?bookname=幼女战记&author=lin123456" name="幼女战记"><img src="img/banner3.png" alt="3"/></a>
+		  </div>
+			<div class="buttons">
+			  <span class="on"></span>
+			  <span></span>
+			  <span></span>    </div>
+			<a href="javascript:;" rel="external nofollow" class="arrow arrow_left"><</a>
+			<a href="javascript:;" rel="external nofollow" class="arrow arrow_right">></a>  
+		</div>
+		<!-- 热门作品-->
+		<div class="hot">
+			<div class="adv1">
+			<a href="https://mp.weixin.qq.com/s/Xl_FCTk-s_HBAmRyGlJLaA"><img src="img/adv/adv1.png"></img></a>
+			</div>
+			<!--小说列表-->
+			<ul class="storylist" >
+				<li>
+					<div class="pic">
+						<a class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[0].bookname}+'&author='+${rebooks[0].author}" >
+							<img class="block-img" alt="1" src="img/cover/cover0.jpg"/>
+						</a>
+						<!--小说信息-->
+					</div>
+					<div class="infotext">
+						<p class="title">
+						<a th:href="'/detafromhome?bookname='+${rebooks[0].bookname}+'&author='+${rebooks[0].author}" class="biaoti" th:text="${rebooks[0].bookname}">暂无信息</a></p>
+					</div>		
+				</li>
+				<li>
+					<div class="pic">
+						<a  class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[1].bookname}+'&author='+${rebooks[1].author}" >
+						<img class="block-img" alt="2" src="img/cover/cover1.jpg" /></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a th:href="'/detafromhome?bookname='+${rebooks[1].bookname}+'&author='+${rebooks[1].author}" class="biaoti"  th:text="${rebooks[1].bookname}">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[2].bookname}+'&author='+${rebooks[2].author}" >
+						<img class="block-img" alt="3" src="img/cover/cover2.jpg"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a th:href="'/detafromhome?bookname='+${rebooks[2].bookname}+'&author='+${rebooks[2].author}" class="biaoti"  th:text="${rebooks[2].bookname}">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a  class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[3].bookname}+'&author='+${rebooks[3].author}" >
+						<img class="block-img" alt="4" src="img/cover/cover3.jpg"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a th:href="'/detafromhome?bookname='+${rebooks[3].bookname}+'&author='+${rebooks[3].author}" class="biaoti"  th:text="${rebooks[3].bookname}">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[4].bookname}+'&author='+${rebooks[4].author}" >
+						<img class="block-img" alt="1" src="img/cover/cover4.jpg"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a th:href="'/detafromhome?bookname='+${rebooks[4].bookname}+'&author='+${rebooks[4].author}" class="biaoti"  th:text="${rebooks[4].bookname}">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[5].bookname}+'&author='+${rebooks[5].author}" >
+						<img class="block-img" alt="2" src="img/cover/cover5.jpg"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a th:href="'/detafromhome?bookname='+${rebooks[5].bookname}+'&author='+${rebooks[5].author}" class="biaoti"  th:text="${rebooks[5].bookname}">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[6].bookname}+'&author='+${rebooks[6].author}" >
+						<img class="block-img" alt="3" src="img/cover/cover6.jpg"/></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a th:href="'/detafromhome?bookname='+${rebooks[6].bookname}+'&author='+${rebooks[6].author}" class="biaoti"  th:text="${rebooks[6].bookname}">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[7].bookname}+'&author='+${rebooks[7].author}" >
+						<img class="block-img" alt="4" src="img/cover/cover7.jpg" /></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a th:href="'/detafromhome?bookname='+${rebooks[7].bookname}+'&author='+${rebooks[7].author}" class="biaoti"  th:text="${rebooks[7].bookname}">暂无信息</a></p>
+					</div>				</li>
+			</ul>
+		</div>
+		<!--新作推荐-->
+		<div class="new">
+			<div class="adv2">
+				<a href="https://mp.weixin.qq.com/s/-C1nPeISB_zMA11qheafoQ"><img src="img/adv/adv2.png"></img></a>
+			</div>
+			<ul class="storylist">
+				<li>
+					<div class="pic">
+						<a class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[8].bookname}+'&author='+${rebooks[8].author}" >
+						<img class="block-img" alt="1" src="img/cover/cover8.jpg" /></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a th:href="'/detafromhome?bookname='+${rebooks[8].bookname}+'&author='+${rebooks[8].author}" class="biaoti"  th:text="${rebooks[8].bookname}">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[9].bookname}+'&author='+${rebooks[9].author}" >
+						<img class="block-img" alt="2" src="img/cover/cover9.jpg" /></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a th:href="'/detafromhome?bookname='+${rebooks[9].bookname}+'&author='+${rebooks[9].author}" class="biaoti"  th:text="${rebooks[9].bookname}">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[10].bookname}+'&author='+${rebooks[10].author}" >
+						<img class="block-img" alt="3" src="img/cover/cover10.jpg" /></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a th:href="'/detafromhome?bookname='+${rebooks[10].bookname}+'&author='+${rebooks[10].author}" class="biaoti"  th:text="${rebooks[10].bookname}">暂无信息</a></p>
+					</div>				</li>
+				<li>
+					<div class="pic">
+						<a class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[11].bookname}+'&author='+${rebooks[11].author}" >
+						<img class="block-img" alt="4" src="img/cover/cover11.jpg" /></a>
+						<!--小说信息-->
+					</div>	
+					<div class="infotext">
+						<p class="title">
+						<a th:href="'/detafromhome?bookname='+${rebooks[11].bookname}+'&author='+${rebooks[11].author}" class="biaoti"  th:text="${rebooks[11].bookname}">暂无信息</a></p>
+					</div>			</li>
+			</ul>
+		</div>
+		<!--分类推荐-->
+		<div class="class-recmd">
+			<div class="adv3">
+				<a href="https://mp.weixin.qq.com/s/uuaDR2zTEbEbNJlmA7fR1g"><img src="img/adv/adv3.png"></img></a>
+			</div>
+			<ul class="class-story">
+				<li>
+					<div id="class-recmd_li">
+						<div class="pic">
+							<a class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[12].bookname}+'&author='+${rebooks[12].author}" >
+							<img class="block-img" alt="4" src="img/cover/cover12.jpg" /></a>
+						</div>
+						
+						<div class="novel-des">
+							<p class="bookdesc" th:text="${rebooks[12].bookname}+'</br>'+${rebooks[12].author}"></p>
+						</div>  
+						<div class="same-class">
+							<p class="book_info" th:text="${rebooks[12].info}"></p>					
+						</div>
+					</div>
+				</li>
+				<li>
+					<div id="class-recmd_li">
+						<div class="pic">
+							<a class="cover_pic" th:href="'/detafromhome?bookname='+${rebooks[13].bookname}+'&author='+${rebooks[13].author}" >
+							<img class="block-img" alt="4" src="img/cover/cover13.jpg" /></a>
+							
+						</div>
+						<div class="novel-des">
+							<p class="bookdesc" th:text="${rebooks[13].bookname}+'</br>'+${rebooks[13].author}"></p>
+						</div>
+							<div class="same-class">
+							<p class="book_info"th:text="${rebooks[13].info}"></p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+  <script th:inline="javascript">
+    var wrap = document.querySelector(".wrap");
+    var next = document.querySelector(".arrow_right");
+    var prev = document.querySelector(".arrow_left");
+    next.onclick = function () {
+      next_pic();
+    }
+    prev.onclick = function () {
+      prev_pic();
+    }
+    
+    function next_pic () {
+      index++;
+      if(index > 2){
+        index = 0;
+      }
+      showCurrentDot();
+      var newLeft;
+      if(wrap.style.left === "-2200px"){
+        newLeft = 0;
+      }else{
+        newLeft = parseInt(wrap.style.left)-1100;
+      }
+      wrap.style.left = newLeft + "px";
+    }
+    
+    function prev_pic () {
+      index--;
+      if(index < 0){
+        index = 2;
+      }
+      showCurrentDot();
+      var newLeft;
+      if(wrap.style.left === "0px"){
+        newLeft = -2200;
+      }else{
+        newLeft = parseInt(wrap.style.left)+1100;
+      }
+      wrap.style.left = newLeft + "px";
+    }
+    var timer = null;
+    function autoPlay () {
+      timer = setInterval(function () {
+        next_pic();
+      },20000);
+    }
+    autoPlay();
+    var container = document.querySelector(".container");
+    container.onmouseenter = function () {
+      clearInterval(timer);
+    }
+    container.onmouseleave = function () {
+      autoPlay();  
+    }
+    var index = 0;
+    var dots = document.getElementsByTagName("span");
+    function showCurrentDot () {
+      for(var i = 0, len = dots.length; i < len; i++){
+        dots[i].className = "";
+      }
+      dots[index].className = "on";
+    }
+    for (var i = 0, len = dots.length; i < len; i++){
+      (function(i){
+        dots[i].onclick = function () {
+          var dis = index - i;
+          if(index == 2 && parseInt(wrap.style.left)!==-3000){
+            dis = dis - 3;   
+          }
+          //和使用prev和next相同，在最开始的照片5和最终的照片1在使用时会出现问题，导致符号和位数的出错，做相应地处理即可
+          if(index == 0 && parseInt(wrap.style.left)!== -600){
+            dis = 3 + dis;
+          }
+          wrap.style.left = (parseInt(wrap.style.left) + dis * 600)+"px";
+          index = i;
+          showCurrentDot();
+        }
+      })(i);      
+    }
+  </script>
+</body>
+</html>

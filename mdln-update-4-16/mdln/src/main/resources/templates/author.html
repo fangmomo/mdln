@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>作品管理</title>
+    <link rel="stylesheet" type="text/css" href="css/contentv2_base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/contentv2_book_manage.css"/></head>
+<body>
+<div class="wrap">
+    <div class="header">
+    <div class="headBox pageCenter cf">
+    <a href="/">
+        <img class="logo fl" src="img/author/author_title1.png" width="225" height="28" alt="萌动·作家专区"/>
+    </a>
+
+      <div class="headUser fr">
+        <ul class="cf">
+          <li id="headPhotoBox" class="headPhoto">
+            <p><em><img src="img/author/photo_default.png" width="36" height="36" alt=""/></em><a class="userName" id="username"></a>
+            	<a class="out" href="/logout">退出</a>
+            	</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+</div>
+<div id="warnTipBox" class="warningWrap" style="display:none;">
+    <div class="pageCenter">
+      <p><span class="icon alert"></span><span id="warnTip"></span></p>
+      <a id="warnTipCloseBtn" class="icon close" href="javascript:" title="关闭"></a></div>
+</div>
+
+    <div class="mainWrap pageCenter cf">       
+        <div id="leftNav" class="mainLeft fl" style="visibility: visible;">
+            <div class="sideBar" id="main-bar">
+                  <ul>
+                    <li class="act">
+                        <a><span class="works"></span>作品管理</a>
+                    </li>
+                                                        </ul>
+            </div>
+        </div>
+
+<div class="mainRight fl">
+    <div class="crumbsWrap">
+        <i><span>作品管理</span></i>
+    </div>
+    <div class="msgBoxTitle">
+        <p class="f12 c555">当前作品总数<span id="bookCount" class="blue Num">0</span>本</p>
+        <a id="createNovelBtn" class="create button" href="/createbook"><em class="icon" ></em>创建作品</a>
+   </div>
+         <!-- 存在作品 -->
+    <div id="bookManageExist" class="worksCtrlWrap">
+        <div class="worksListWrap mb20">
+            <table class="worklist-table" width="100%" border="0" cellspacing="0">
+                <colgroup>
+                    <col width="32px"/>
+                    <col width="100px"/>
+                    <col width="100px"/>
+                    <col width="100px"/>
+                    <col width="200px"/>
+                </colgroup>
+                <thead id ="books">
+                <tr>
+                    <th></th>
+                    <th class="tl">书名</th>
+                    <th class="tl">最新章节</th>
+                    <th>状态</th>
+                    <th class="center">操作</th>
+                </tr>
+                </thead>
+                <tbody id="novelList"></tbody>
+            </table>
+        </div>
+        <!-- 翻页组件 -->
+        <div id="pager" class="pageBox fr" style="display: none;"></div>
+    </div>
+    <!-- 没有作品 -->
+    <div id="bookManageNone" class="worksCtrlWrap">
+        <div class="null">
+            <img src="img/author/null.png" width="204" height="148"/>
+            <p>你没有发布任何作品，<a class="button" id="createNovelBtn2" href="/createbook">创建作品</a></p>
+        </div>
+    </div>
+</div>
+ </div>
+<script th:inline="javascript">
+	function init(){
+	 	if (document.cookie.length > 0){
+	 		var search = "username="
+	 		var	sd = document.cookie.indexOf(search);
+	 		var end;
+	 		var namevalue;
+	 		if (sd!= -1){
+	 			sd += search.length;
+	 			end = document.cookie.indexOf(";", sd);
+	 			if (end == -1)
+	 		         end = document.cookie.length;
+	 			namevalue=document.cookie.substring(sd, end);
+	 			document.getElementById("username").innerHTML =namevalue;
+	 		}	
+	 	}  
+	}
+	function showinfo(){
+		if(parseInt(booklen)==0)
+			{return ;}
+		else{
+			document.getElementById("bookManageNone").style.visibility="hidden";
+			document.getElementById("bookManageExist").style.visibility="visible";
+			for(var i=0;i<parseInt(booklen);i++){
+				var parent = document.getElementById("books");
+				var tr = document.createElement("tr");
+				var td1 = document.createElement("th");
+				var td2 = document.createElement("th");
+				td2.setAttribute("class","tl");
+				td2.innerHTML = bookjson[parseInt(i)].bookname;
+				var td3 = document.createElement("th");
+				td3.setAttribute("class","tl");
+				td3.innerHTML = bookjson[parseInt(i)].current_count;
+				var td4 = document.createElement("th");
+				td4.innerHTML = "完结";
+				if(parseInt(bookjson[parseInt(i)].current_count)!=9999)
+					td4.innerHTML = "未完结";
+				
+				
+				var td5 = document.createElement("th");
+				var div = document.createElement("div");
+				td5.setAttribute("class","center");
+				var xxf = document.createElement("form");
+				xxf.setAttribute("method","post");
+				xxf.setAttribute("class","postform");
+				xxf.action="setover";
+				var i1 = document.createElement("input");
+				i1.type = "hidden";
+				i1.name = "bookname";
+				i1.value = bookjson[parseInt(i)].bookname;
+				var i2 = document.createElement("input");
+				i2.type = "submit";
+				i2.value = "设置完结";
+				xxf.appendChild(i2);
+				xxf.appendChild(i1); 
+				
+				var overf = document.createElement("form");
+				overf.setAttribute("class","postform");
+				
+				overf.setAttribute("method","post");
+				overf.action="/loadnovel";
+				var i3 = document.createElement("input");
+				i3.type="submit";
+				i3.value = "续写";
+				var i4 = document.createElement("input");
+				i4.type = "hidden";
+				i4.name = "book-name";
+				i4.value = bookjson[parseInt(i)].bookname;
+				var i5 = document.createElement("input");
+				i5.type = "hidden";
+				i5.name = "ch-count";
+				i5.value = bookjson[parseInt(i)].current_count;
+				overf.appendChild(i5);
+				overf.appendChild(i4);
+				overf.appendChild(i3); 
+				
+				//1.17更改
+				var paintf = document.createElement("form");
+				paintf.setAttribute("class","postform");
+				paintf.setAttribute("method","post");
+				
+				paintf.action="/paint";
+				var in3 = document.createElement("input");
+				in3.type="submit";
+				in3.value = "插画";
+				var in4 = document.createElement("input");
+				in4.type = "hidden";
+				in4.name = "paint_bookname";
+				in4.value = bookjson[parseInt(i)].bookname;
+				paintf.appendChild(in3);
+				paintf.appendChild(in4);
+				
+				div.appendChild(xxf);
+				div.appendChild(overf);
+				div.appendChild(paintf);
+				td5.appendChild(div);
+				
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+				tr.appendChild(td3);
+				tr.appendChild(td4);
+				tr.appendChild(td5); 
+				parent.appendChild(tr);
+			}
+		}
+	}
+	
+	/*<![CDATA[*/
+	window.bookslist = /*[[${session.books}]]*/; 	
+	/*]]>*/
+	var bookjson = JSON.parse(bookslist);
+	var booklen = bookjson.length;
+	init();
+	showinfo();
+</script>
+</body></html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org"/> 
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="shortcut icon" type="image/x-icon" href="https://img1.write.qq.com/writer/p1/contentv2/aa_ico.ico"/>
+    <title>创建作品-阅文作家专区</title>
+    <link rel="stylesheet" type="text/css" href="css/contentv2_book_manage.css"/>
+    <link rel="stylesheet" type="text/css" href="css/contentv2_base.css"/>
+<body>
+<div class="wrap">
+     <div class="header">
+    <div class="headBox pageCenter cf">
+    	<a herf="/">
+         <img class="logo fl" src="img/author/author_title1.png" width="225" height="28" alt="萌动·作家专区"/>
+      </a>
+      <div class="headUser fr">
+        <ul class="cf">
+          <li id="headPhotoBox" class="headPhoto">
+            <p><em><img src="img/author/photo_default.png" width="36" height="36" alt=""/></em><a class="userName" id="username" href="javascript:">小方哈哈</a>
+            	<a class="out" href="/">退出</a>
+            	</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+</div>
+<!-- start banner -->
+    
+<!-- end banner -->
+<!-- 黄条提示 -->
+<div id="warnTipBox" class="warningWrap" style="display:none;">
+    <div class="pageCenter">
+      <p><span class="icon alert"></span><span id="warnTip"></span></p>
+      <a id="warnTipCloseBtn" class="icon close" href="javascript:" title="关闭"></a></div>
+</div>
+
+    <div class="mainWrap pageCenter cf">       
+        <div id="leftNav" class="mainLeft fl" style="visibility: visible;">
+            <div class="sideBar" id="main-bar">
+                  <ul>
+                    <li class="act">
+                        <a href="https://write.qq.com/booknovels/novels.html"><span class="works"></span>作品管理</a>
+                    </li>
+                    </ul>
+            </div>
+        </div>
+
+<div class="mainRight pb260 fl">
+
+        <div class="crumbsWrap">
+        <b></b> <i class="before"><span><a href="l">作品管理</a></span></i><em class="diff"></em>
+        <i class="current"><span>作品创建</span></i>
+    </div>
+
+    <form name="formbooknovelsnew" id="formbooknovelsnew" method="post" action="addbook">
+    <div class="workStepList step2">
+
+            <!-- 站点类型 -->
+            <input id="siteTypeHidden" name="site" type="hidden" value="1"/>
+            <input id="artidx" type="hidden" name="artidx" value="0"/>
+            <input id="selectid" type="hidden" name="selectid" value="0"/>
+           <ul>
+                <li> <em>作品名称</em>
+                    <input class="long" id="bookName" name="title" type="text" value=""/>
+                    <cite data-node="ok" class="icon ok" style="display:none;"></cite>
+                    <p data-node="tip" class="tip">15字内，请勿添加书名号等特殊符号</p>
+                    <p data-node="error" style="display:none;" class="error"></p>
+                </li>
+                <li class="zIndexTop cf"><em>作品类型</em>
+                    <div class="selectBox cf">
+                        <select class="bigClass" id="novelMainCategorySelect" name="storyclass">
+                            <option value="">-请选择-</option><option value="玄幻">玄幻</option><option value="奇幻">奇幻</option><option value="武侠">武侠</option><option value="仙侠">仙侠</option><option value="都市">都市</option><option value="历史">历史</option><option value="军事">军事</option><option value="灵异">灵异</option><option value="科幻">科幻</option><option value="游戏">游戏</option><option value="二次元">二次元</option><option value="其他">其他</option>                        </select>
+                    </div>
+                    <p class="tag-intro" id="tag-intro"></p>
+				</li>
+                <li><em>作品介绍</em>
+                    <textarea id="introduction" name="intro"></textarea>
+                    <cite data-node="ok" class="icon ok" style="display:none;"></cite>
+                    <p data-node="tip" class="tip">20~300字</p>
+                    <p data-node="error" style="display:none;" class="error"></p>
+                </li>
+           </ul>
+            <div class="stepBtn"> <a class="button" id="createNovelBtn" href="javascript:" onclick=document.formbooknovelsnew.submit()>创建作品</a> </div>
+    </div>
+   ，	</form>
+</div>
+<!-- start 交稿弹窗 -->
+
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+	var username = /*[[${session.username}]]*/;
+/*]]>*/
+	document.getElementById("username").innerHTML = username;
+	
+</script>
+
+
+</body></html>
