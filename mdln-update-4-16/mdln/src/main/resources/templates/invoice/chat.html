@@ -109,7 +109,7 @@
 					<ul>
 						<li>
 							<div class="a_friend">
-								<span class="name" id="chattouser">天狼星</span>
+								<span class="name" id="chattouser" th:text="${invoice.publicer}">天狼星</span>
 							</div>
 						</li>
 					</ul>
@@ -117,8 +117,6 @@
 				<!--聊天界面-->
 				<div class="talk_con">
 					<div class="talk_show" id="words">
-						<!--<div class="atalk"><span id="asay">A说：吃饭了吗？</span></div>  -->
-						<!--<div class="btalk"><span id="bsay">B说：还没呢，你呢？</span></div>  -->
 					</div>
 					<div class="talk_input">
 						<textarea class="talk_word" id="talkwords"></textarea>
@@ -132,37 +130,27 @@
 			</div>
 		</div>
 		<script th:inline="javascript">
-		
-			/*<![CDATA[*/
-				window.chattouser = /*[[${session.curr_chat}]]*/; 	
-				window.userid = /*[[${session.id}]]*/; 
+			/*<![CDATA[*/	
+				window.userid = /*[[${id}]]*/; 
+				window.publicer_id = /*[[${invoice.publicer_id}]]*/
 			/*]]>*/
-			window.invoicejson = JSON.parse(chattouser);
-			document.getElementById("chattouser").innerHTML=invoicejson.publicer;
 			
 			var websocket = null;
 			var Words = document.getElementById("words");
 			$(function() {
-				//创建WebSocket
 				connectWebSocket();
 			})
 			
-			//强制关闭浏览器 调用websocket.close（）,进行正常关闭
 			window.onunload = function() {
-				//关闭连接  
 				closeWebSocket();
 			}
 			//建立WebSocket连接
 			function connectWebSocket() {
-				//建立webSocket连接
 				websocket = new WebSocket('ws://localhost:80/webSocket/id='+userid);
-				//打开webSokcet连接时，回调该函数
 				websocket.onopen = function() {
 					console.log("onpen");
 				}
-				//关闭webSocket连接时，回调该函数
 				websocket.onclose = function() {
-					//关闭连接  
 					console.log("onclose");
 				}
 				//接收信息
@@ -170,24 +158,13 @@
 			        console.log('websocket收到消息' + event.data);
 			        str = '<div class="btalk"><span>B说 :' + event.data +'</span></div>' ;
 			        Words.innerHTML = Words.innerHTML + str;
-			        //在这里接受消息
-			        /* var result = $.parseJSON(event.data);
-			        if (result.type == 3) {
-			            var element = document.getElementById('message-template').innerHTML;
-			            $('.message-container').append(element);
-			            $(".message-content:last").html(result.message);
-			        }
-			        else {
-			            $('.chat-num').text(result.userNum);
-			        } */
-
 			    }
 			}
 			//发送消息
 			function send() {
 				var postValue = {};
 				postValue.id = userid;
-				postValue.chatto = invoicejson.publicer_id;
+				postValue.chatto = publicer_id;
 				postValue.message = document.getElementById("talkwords").value;
 				document.getElementById("talkwords").value="";
 				str = '<div class="atalk"><span>A说 :' + postValue.message +'</span></div>';

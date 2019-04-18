@@ -2,6 +2,9 @@ package mysb.mdln.domain;
 
 public class Message {
 	int type;
+	int num;
+	String msg;
+	
 	public int getType() {
 		return type;
 	}
@@ -26,8 +29,6 @@ public class Message {
 		this.msg = msg;
 	}
 
-	int num;
-	String msg;
 	
 	public Message(int type, int num, String msg) {
 		super();

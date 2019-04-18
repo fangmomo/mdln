@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -59,7 +60,7 @@ public class NovelController {
 	
 	// next page
 	@RequestMapping(value = "/next")
-	public String next(HttpServletRequest request) {
+	public String next(HttpServletRequest request,Model model) {
 		int curr = (int) request.getSession().getAttribute("curr");
 		String author = (String)request.getSession().getAttribute("zuozhe");
 		String bookname = (String)request.getSession().getAttribute("curr_book");
@@ -67,8 +68,10 @@ public class NovelController {
 		if(curr<MaxCount)
 			curr=curr+1;
 		String message = WriteToLocal.read(author,bookname, Integer.valueOf(curr));
-		request.getSession().setAttribute("curr",curr);
-		request.getSession().setAttribute("message", message);
+		model.addAttribute("curr",curr);
+		model.addAttribute("message", message);
+		/*request.getSession().setAttribute("curr",curr);
+		request.getSession().setAttribute("message", message);*/
  		return "readview";
 	}
 	
@@ -299,8 +302,8 @@ public class NovelController {
 	 */
 	@RequestMapping(value="/chat_author",method = RequestMethod.POST)
 	public String chat(HttpServletRequest requset){
-		String pid = requset.getParameter("publicer_id");
-		Invoice invoice = invoiceService.getInvoiceByPid(pid);
+		String invoice_id = requset.getParameter("publicer_id");
+		Invoice invoice = invoiceService.getInvoiceByPid(Integer.valueOf(invoice_id));
 		if(null==invoice) {
 			return "error/404";
 		}
@@ -309,7 +312,20 @@ public class NovelController {
 		/*
 		 * 
 		 */
-		
+		return "invoice/chat";
+	}
+	
+	/*
+	 * 用于测试
+	 */
+	@RequestMapping(value="/chat_author")
+	public String chat1(HttpServletRequest requset,Model model){
+		Invoice invoice = invoiceService.getInvoiceByPid(1);
+		if(null==invoice) {
+			return "error/404";
+		}
+		model.addAttribute("invoice",invoice);
+		model.addAttribute("id", 100001);
 		return "invoice/chat";
 	}
 	/*
@@ -321,10 +337,7 @@ public class NovelController {
 		String invos = (String) request.getSession().getAttribute("all_invoice");
 		ArrayList<Invoice> invoices = (ArrayList<Invoice>) JSON.parseArray(invos, Invoice.class);
 		String curr_invo = JSON.toJSONString(invoices.get(li_index));
-		
 		request.getSession().setAttribute("curr_invo", curr_invo);
-		
-		
 		return "invoice/invo_detail";
 	}
 }

@@ -2,7 +2,6 @@ package mysb.mdln.websocket;
 
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
@@ -26,14 +25,12 @@ public class WebSocket {
 
 	private static ConcurrentHashMap<String, WebSocket> userWebsocket = new ConcurrentHashMap<>();
 	
-    		
     private Message messageVO = new Message();
 
     @OnOpen
     public void onOpen(@PathParam("userid") String userid,Session session) {
-    	
         this.session = session;
-        
+   
         userWebsocket.put(userid, this);
 
         messageVO.setType(1);
@@ -60,7 +57,6 @@ public class WebSocket {
     @OnClose
     public void onClose() {
     	userWebsocket.remove(this);
-
         messageVO.setType(2);
         messageVO.setNum(userWebsocket.size());
         messageVO.setMsg("有用户离开");
@@ -109,7 +105,6 @@ public class WebSocket {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-    
     }
 
 }

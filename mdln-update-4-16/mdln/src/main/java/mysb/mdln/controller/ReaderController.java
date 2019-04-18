@@ -33,9 +33,7 @@ public class ReaderController {
 		user.setUsername(request.getParameter("username"));
 		user.setPassward(request.getParameter("userPassword"));
 		user.setEmail(request.getParameter("userEmail"));
-
 		userService.registe(user);
-		System.out.println("注册成功");
         return "home";
 	}
 	

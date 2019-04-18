@@ -1,7 +1,19 @@
 package mysb.mdln.domain;
 
-public class Invoice {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="invoice")
+public class Invoice {
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="invoice_id")
+	int invoice_id;
 	String publicer;
 	int publicer_id;
 	//1 有风格要求 0无风格要求

@@ -14,6 +14,6 @@ public interface InvoiceService {
 	public ArrayList<Invoice> getInvoiceAll();
 	
 	//通过一个pid获取一个交易
-	public Invoice getInvoiceByPid(String pid);
+	public Invoice getInvoiceByPid(int id);
 	
 }
